@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Taken from https://github.com/phunehehe/terminal-dotfiles
+
 # A better way of calling ln
 link_file() {
 	source="$1"
@@ -24,7 +26,9 @@ bash_profile
 environment
 functions
 git-prompt
+gitignore
 prompt
+vimrc
 "
 
 for source in $dotfiles
@@ -32,3 +36,5 @@ do
 	destination="$HOME/.${source}"
 	link_file "$bin_dir/$source.sh" "$destination"
 done
+
+. ~/.bash_profile
