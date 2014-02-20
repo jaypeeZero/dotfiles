@@ -34,7 +34,7 @@ done
 shellfiles="
 aliases
 bash_profile
-environment
+colors
 functions
 git-prompt
 prompt
