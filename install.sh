@@ -21,17 +21,26 @@ link_file() {
 bin_dir="$(cd "$(dirname "$0")" && pwd)"
 
 dotfiles="
+gitignore
+vimrc
+"
+
+for source in $dotfiles
+do
+	destination="$HOME/.${source}"
+	link_file "$bin_dir/.$source" "$destination"
+done
+
+shellfiles="
 aliases
 bash_profile
 environment
 functions
 git-prompt
-gitignore
 prompt
-vimrc
 "
 
-for source in $dotfiles
+for source in $shellfiles
 do
 	destination="$HOME/.${source}"
 	link_file "$bin_dir/$source.sh" "$destination"
