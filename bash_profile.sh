@@ -1,5 +1,4 @@
-. ~/Dropbox/Customization/Shell/setup.sh
-
+. ~/.environment
 
 ##
 # Your previous /Users/Keith/.bash_profile file was backed up as /Users/Keith/.bash_profile.macports-saved_2013-07-27_at_10:33:19

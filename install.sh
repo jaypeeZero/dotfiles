@@ -32,17 +32,21 @@ do
 done
 
 shellfiles="
-aliases
 bash_profile
 colors
+aliases
 functions
 git-prompt
 prompt
 "
 
+[[ -e $HOME/.environment ]] && rm $HOME/.environment
 for source in $shellfiles
 do
 	destination="$HOME/.${source}"
+	if [ $source != 'bash_profile' ]; then
+		echo ". ${destination}" >> $HOME/.environment
+	fi
 	link_file "$bin_dir/$source.sh" "$destination"
 done
 
