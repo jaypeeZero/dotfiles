@@ -5,3 +5,9 @@ get_dir() {
 get_sha() {
     git rev-parse --short HEAD 2>/dev/null
 }
+
+reload() {
+	cd ~
+	. ~/.bash_profile
+	cd -
+}
