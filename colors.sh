@@ -77,3 +77,15 @@ export On_IBlue='\e[0;104m'    # Blue
 export On_IPurple='\e[0;105m'  # Purple
 export On_ICyan='\e[0;106m'    # Cyan
 export On_IWhite='\e[0;107m'   # White
+
+all_colors() {
+	for x in 0 1 2 4 7 8; do
+		for i in `seq 30 37`; do
+			for a in `seq 40 47`; do
+				echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0;39;49m ";
+			done;
+			echo;
+		done;
+		echo ;
+	done;
+}
