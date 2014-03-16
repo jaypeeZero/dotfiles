@@ -1,8 +1,5 @@
-
 # Enable colors in OSX terminal
 export CLICOLOR=1
-#export LSCOLORS=ExFxBxDxCxegedabagacad
-#export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Reset
 export Color_Off='\e[0m'       # Text Reset
