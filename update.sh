@@ -7,5 +7,3 @@ git merge origin/master --ff-only
 git submodule update --init --recursive
 
 ./install.sh
-
-reload
