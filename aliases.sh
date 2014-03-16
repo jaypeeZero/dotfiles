@@ -3,7 +3,7 @@ alias ll='ls -al'
 alias lla='ls -al'
 
 # Things for git
-alias gs='git status'
+alias gs='git status -sb'
 alias gd='git diff'
 
 # SourceTree
