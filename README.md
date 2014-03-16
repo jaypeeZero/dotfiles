@@ -1,11 +1,13 @@
-# Binary Hawk Dotfiles
+# My Dotfiles
 
-These dotfiles are intended to be used for quick and easy setup of the environment for all Binary Hawk stuff.
-This way, we can have a consistent prompt (&c) on all boxes, both remote and local. 
+These dotfiles are intended to be used for quick and easy setup of my environment.
+This way, I can have a consistent prompt (&c) on all boxes, both remote and local.
+As well, kept public because I might want to reference them on other computers, or point
+out features publicly.
 
 ## Installation
 
-    git clone https://kdbertel@bitbucket.org/binaryhawk/dotfiles.git .df
+    git clone https://github.com/kdbertel/dotfiles.git .df
     ./.df/install.sh
 
 Existing dotfiles are backed up. To delete them:
@@ -14,4 +16,4 @@ Existing dotfiles are backed up. To delete them:
 
 To update an existing installation:
 
-    ./df/update.sh
+    ./.df/update.sh

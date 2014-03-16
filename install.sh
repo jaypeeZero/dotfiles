@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Taken from https://github.com/phunehehe/terminal-dotfiles
+# Taken from https://github.com/phunehehe/terminal-dotfiles and modified to suit my purposes
 
 # A better way of calling ln
 link_file() {
