@@ -1,0 +1,19 @@
+[user]
+	name = Keith Bertelsen
+	email = keith@keithbertelsen.com
+[core]
+	excludesfile = ~/.gitignore
+[color]
+	ui = true
+[alias]
+	s = status
+	st = status
+	sta = status
+	stat = status
+	statu = status
+	co = checkout
+	graph = log --oneline --color --graph --decorate
+[push]
+	default = simple
+[include]
+	path = .local.gitconfig
