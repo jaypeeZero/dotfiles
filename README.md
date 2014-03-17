@@ -17,3 +17,8 @@ Existing dotfiles are backed up. To delete them:
 To update an existing installation:
 
     ./.df/update.sh
+
+### For Not-Me
+
+Needless to say, if you clone this repo, you probably will want to change references to me
+(such as in `.gitconfig`) to your name.
