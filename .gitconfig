@@ -12,6 +12,7 @@
 	stat = status
 	statu = status
 	co = checkout
+	ci = commit
 	graph = log --oneline --color --graph --decorate
 [push]
 	default = simple
