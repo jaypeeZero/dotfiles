@@ -15,6 +15,7 @@ alias lla='ls -al'
 # Things for git
 alias gs='git status -sb'
 alias gd='git diff --no-ext-diff'
+alias gadd='git add -A && git status -sb'
 
 # SourceTree
 alias sourcetree='open -a SourceTree .'
