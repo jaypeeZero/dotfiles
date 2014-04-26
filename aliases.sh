@@ -21,5 +21,4 @@ alias gcomm='git commit -m'
 # SourceTree
 alias sourcetree='open -a SourceTree .'
 alias st='sourcetree'
-alias tree='sourcetree'
 alias gitk='sourcetree'
