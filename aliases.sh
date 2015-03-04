@@ -12,6 +12,14 @@ alias ls='ls -Fh ${colorflag}'
 alias ll='ls -al'
 alias lla='ls -al'
 
+# Safety
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
+
+# Because I sometimes forget to sudo
+alias fuck='sudo $(fc -ln -1)'
+
 # Things for git
 alias gs='git status -sb'
 alias gd='git diff --no-ext-diff'
