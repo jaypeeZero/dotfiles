@@ -7,3 +7,8 @@ reload() {
 	. ~/.bash_profile
 	cd -
 }
+
+cleandd() {
+	rm -rf ~/Library/Developer/Xcode/DerivedData
+	echo "Removed all derived data."
+}
