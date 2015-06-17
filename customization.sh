@@ -68,7 +68,6 @@ alias cleardd=cleandd
 alias gs='git status -sb'
 alias gd='git diff --no-ext-diff'
 alias gadd='git add -A && git status -sb'
-alias gcomm='git commit -m'
 
 alias sourcetree='open -a SourceTree .'
 alias gitk='sourcetree'
