@@ -38,6 +38,7 @@ colors
 aliases
 functions
 git-prompt
+git-completion
 prompt
 "
 
