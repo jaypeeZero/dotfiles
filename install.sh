@@ -39,7 +39,6 @@ bash_profile
 colors
 customization
 aliases
-functions
 "
 
 [[ -e $HOME/.environment ]] && rm $HOME/.environment
