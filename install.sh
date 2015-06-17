@@ -38,7 +38,6 @@ git-completion
 bash_profile
 colors
 customization
-aliases
 "
 
 [[ -e $HOME/.environment ]] && rm $HOME/.environment
