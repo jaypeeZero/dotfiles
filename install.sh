@@ -33,13 +33,13 @@ do
 done
 
 shellfiles="
-bash_profile
-colors
-aliases
-functions
 git-prompt
 git-completion
-prompt
+bash_profile
+colors
+customization
+aliases
+functions
 "
 
 [[ -e $HOME/.environment ]] && rm $HOME/.environment

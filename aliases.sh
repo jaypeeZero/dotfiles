@@ -19,14 +19,3 @@ alias cp='cp -i'
 
 # Because I sometimes forget to sudo
 alias fuck='sudo $(fc -ln -1)'
-
-# Things for git
-alias gs='git status -sb'
-alias gd='git diff --no-ext-diff'
-alias gadd='git add -A && git status -sb'
-alias gcomm='git commit -m'
-
-# SourceTree
-alias sourcetree='open -a SourceTree .'
-alias st='sourcetree'
-alias gitk='sourcetree'
