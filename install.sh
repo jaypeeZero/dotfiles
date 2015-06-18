@@ -21,6 +21,7 @@ link_file() {
 bin_dir="$(cd "$(dirname "$0")" && pwd)"
 
 dotfiles="
+inputrc
 gitconfig
 gitignore
 vimrc
