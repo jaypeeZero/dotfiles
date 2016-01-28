@@ -74,7 +74,6 @@ alias gd='git diff --no-ext-diff'
 alias gadd='git add -A && git status -sb'
 
 alias sourcetree='open -a SourceTree .'
-alias gitk='sourcetree'
 
 ################################################################################
 #
