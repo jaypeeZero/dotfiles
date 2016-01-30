@@ -2,7 +2,7 @@
 #
 # Based on https://github.com/holman/dotfiles/blob/master/zsh/zshrc.symlink
 
-export DF=$HOME/.df
+DF=$HOME/.df
 
 all_files=($DF/**/*.bash)
 
@@ -12,11 +12,9 @@ do
   if [[ $file != */path.bash ]]; then
     continue
   fi
-  echo $file
   source $file
 done  
 
-echo "---"
 
 # Then source all .bash files that are not path or completion
 for file in ${all_files[*]}
@@ -24,10 +22,8 @@ do
   if [[ $file == */path.bash ]] || [[ $file == */completion.bash ]]; then
     continue
   fi
-  echo $file
   source $file
 done
-echo "---"
 
 # Finally all completion files
 for file in ${all_files[*]}
@@ -35,7 +31,6 @@ do
   if [[ $file != */completion.bash ]]; then
     continue
   fi
-  echo $file
   source $file
 done
 
