@@ -4,10 +4,14 @@
 
 export DF=$HOME/.df
 
+all_files=($DF/**/*.bash)
+
 # Source all of the path ones first
-path_files=($DF/**/path.bash)
-for file in ${path_files[*]}
+for file in ${all_files[*]}
 do
+  if [[ $file != */path.bash ]]; then
+    continue
+  fi
   echo $file
   source $file
 done  
@@ -15,26 +19,25 @@ done
 echo "---"
 
 # Then source all .bash files that are not path or completion
-all_files=($DF/**/*.bash)
-config_files=${all_files[*]#*/path.bash}
-for file in ${config_files[*]#*/completion.bash}
+for file in ${all_files[*]}
 do
+  if [[ $file == */path.bash ]] || [[ $file == */completion.bash ]]; then
+    continue
+  fi
   echo $file
   source $file
 done
-
 echo "---"
 
 # Finally all completion files
-completion_files=($DF/**/completion.bash)
-for file in ${completion_files[*]}
+for file in ${all_files[*]}
 do
+  if [[ $file != */completion.bash ]]; then
+    continue
+  fi
   echo $file
   source $file
 done
 
 unset DF
-unset path_files
 unset all_files
-unset config_files
-unset completion_files

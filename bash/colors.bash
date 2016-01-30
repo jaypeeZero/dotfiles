@@ -1,3 +1,7 @@
+#!/bin/bash
+#
+echo "Colors"
+
 # Enable colors in OSX terminal
 export CLICOLOR=1
 
