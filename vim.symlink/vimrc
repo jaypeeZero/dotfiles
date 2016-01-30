@@ -3,12 +3,27 @@ set nocompatible " Never allow compatibility mode with vi
 " Vundle and plugins
 filetype off " Required for Vundle
 
-" set the runtime path to include Vundle and initialize
+" Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Let Vundle manage Vundle
 Bundle "gmarik/vundle"
+
+
+" Hybrid for syntax highlighting
+Bundle 'w0ng/vim-hybrid'
+
+" Airline instead of powerline because it's faster
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+
+" Done with Vundle and bundles
+call vundle#end()
+filetype plugin indent on
+
 
 
 set modeline
@@ -17,8 +32,6 @@ set incsearch
 set ignorecase
 set smartcase
 
-filetype plugin indent on
 syntax on
 
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 set laststatus=2
