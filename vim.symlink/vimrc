@@ -24,6 +24,7 @@ set laststatus=2 " Always show airline
 
 " Syntax highlighting groups
 Bundle 'toyamarinyon/vim-swift'
+Bundle 'tmux-plugins/vim-tmux'
 
 " Done with Vundle and bundles
 call vundle#end()
@@ -73,3 +74,12 @@ set backspace=indent,eol,start " Fix backspacing
 set updatecount=20 " Update swap file every 20 characters
 
 "set modeline
+
+" Autocommands to set up filetypes
+au BufNewFile,BufRead .tmux.conf set filetype=tmux
+
+
+
+
+
+
