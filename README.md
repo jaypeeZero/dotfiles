@@ -1,5 +1,8 @@
 # My Dotfiles
 
+UNDER HEAVY CONSTRUCTION; Ignore all of this
+
+
 These dotfiles are intended to be used for quick and easy setup of my environment.
 This way, I can have a consistent prompt (&c) on all boxes, both remote and local.
 As well, kept public because I might want to reference them on other computers, or point
