@@ -1,54 +1,51 @@
 #!/bin/bash
+#
+# Based on https://github.com/robb/.dotfiles
 
-# Taken from https://github.com/phunehehe/terminal-dotfiles and modified to suit my purposes
+symlinks=$(find . -name "*.symlink")
 
-# A better way of calling ln
-link_file() {
-	source="$1"
-	destination="$2"
-	
-	dest_dir="$(dirname "$destination")"
-	mkdir -p $dest_dir
-	
-	stamp=dotfiles
-	now=$(date '+%Y-%m-%d_%H-%M-%S')
-	
-	[[ -h "$destination" ]] && rm "$destination"
-	[[ -e "$destination" ]] && mv "$destination" "$destination.$stamp-$now"
-	ln -sv "$source" "$destination"
-}
+overwrite_all=false
+backup_all=false
 
-bin_dir="$(cd "$(dirname "$0")" && pwd)"
+for file in $symlinks; do
+    overwrite=false
+    backup=false
 
-dotfiles="
-inputrc
-gitconfig
-gitignore
-vimrc
-"
+    basename=$(basename $file .symlink)
+    target="$HOME/.$basename"
 
-for source in $dotfiles
-do
-	destination="$HOME/.${source}"
-	link_file "$bin_dir/.$source" "$destination"
+    if [ -e "$target" ] || [ -h "$target" ]; then
+        if ! $overwrite_all && ! $backup_all; then
+            while true; do
+                echo "$target already exists"
+                echo "[s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all "
+                read answer
+                case $answer in
+                    "s" ) continue 2;; # continue the outer for loop
+                    "S" ) break 2;;    # break out of the outer for loop
+                    "o" ) overwrite=true; break;;
+                    "O" ) overwrite_all=true; break;;
+                    "b" ) backup=true; break;;
+                    "B" ) backup_all=true; break;;
+                    *   ) continue ;;
+                esac
+            done
+        fi
+
+        if $overwrite || $overwrite_all; then
+            rm $target
+        fi
+
+        if $backup  || $backup_all; then
+            mv $target "$HOME/$basename.backup"
+        fi
+    fi
+
+    echo "Installing $target"
+    ln -s "$PWD/$file" "$target"
 done
 
-shellfiles="
-git-prompt
-git-completion
-bash_profile
-colors
-customization
-"
+set -e
 
-[[ -e $HOME/.environment ]] && rm $HOME/.environment
-for source in $shellfiles
-do
-	destination="$HOME/.${source}"
-	if [ $source != 'bash_profile' ]; then
-		echo ". ${destination}" >> $HOME/.environment
-	fi
-	link_file "$bin_dir/$source.sh" "$destination"
-done
+find . -name "*.install" | while read installer ; do sh -c "${installer}" ; done
 
-. ~/.bash_profile
