@@ -2,18 +2,34 @@
 
 export DF=$HOME/.df
 
-# Find all configuration files
-config_files=($DF/**/*.bash)
+# Source all of the path ones first
+path_files=($DF/**/path.bash)
+for file in ${path_files[*]}
+do
+  echo $file
+done  
 
-#echo $config_files
-#echo ${config_files[*]}
-
-echo ${config_files[2]}
 echo "---"
 
-# Source all of the path ones first
-for file in ${config_files[*]#*/path.bash}
+# Then source all .bash files that are not path or completion
+all_files=($DF/**/*.bash)
+config_files=${all_files[*]#*/path.bash}
+for file in ${config_files[*]#*/completion.bash}
 do
   echo $file
 done
 
+echo "---"
+
+# Finally all completion files
+completion_files=($DF/**/completion.bash)
+for file in ${completion_files[*]}
+do
+  echo $file
+done
+
+unset DF
+unset path_files
+unset all_files
+unset config_files
+unset completion_files
