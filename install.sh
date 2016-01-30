@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Based on https://github.com/robb/.dotfiles
+# Based on https://github.com/robb/.dotfiles/blob/master/install.sh
 
 symlinks=$(find . -name "*.symlink")
 
