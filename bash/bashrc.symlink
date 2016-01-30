@@ -9,6 +9,7 @@ path_files=($DF/**/path.bash)
 for file in ${path_files[*]}
 do
   echo $file
+  source $file
 done  
 
 echo "---"
@@ -19,6 +20,7 @@ config_files=${all_files[*]#*/path.bash}
 for file in ${config_files[*]#*/completion.bash}
 do
   echo $file
+  source $file
 done
 
 echo "---"
@@ -28,6 +30,7 @@ completion_files=($DF/**/completion.bash)
 for file in ${completion_files[*]}
 do
   echo $file
+  source $file
 done
 
 unset DF
