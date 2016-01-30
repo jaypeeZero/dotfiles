@@ -1,0 +1,4 @@
+.DS_Store
+vim.symlink/backup
+vim.symlink/.netrwhist
+**/*.pem
