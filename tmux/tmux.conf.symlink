@@ -10,8 +10,14 @@ bind r source-file ~/.tmux.conf
 
 set -g base-index 1
 set -g pane-base-index 1
+set -g default-terminal "screen-256color"
+set -g pane-border-fg colour235
+set -g pane-active-border-fg colour3
+set -g -q mouse on
 
-is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
+# Smart pane switching with awareness of vim splits
+# See: https://github.com/christoomey/vim-tmux-navigator
+is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?x?)(diff)?$"'
 bind -n C-h if-shell "$is_vim" "send-keys C-h" "select-pane -L"
 bind -n C-j if-shell "$is_vim" "send-keys C-j" "select-pane -D"
 bind -n C-k if-shell "$is_vim" "send-keys C-k" "select-pane -U"
@@ -25,3 +31,17 @@ set -g mode-keys vi
 unbind [
 bind Space copy-mode
 bind C-Space copy-mode
+
+bind C-p paste-buffer
+
+# Use 'v' for selection, like in vim
+bind -t vi-copy v begin-selection
+bind -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Update default copy binding of 'Enter' to also use copy-pipe
+unbind -t vi-copy Enter
+bind -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+
+
+

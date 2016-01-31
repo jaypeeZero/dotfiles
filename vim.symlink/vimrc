@@ -26,6 +26,9 @@ set laststatus=2 " Always show airline
 Bundle 'toyamarinyon/vim-swift'
 Bundle 'tmux-plugins/vim-tmux'
 
+" Work better with tmux
+Bundle 'christoomey/vim-tmux-navigator'
+
 " Done with Vundle and bundles
 call vundle#end()
 filetype plugin indent on
