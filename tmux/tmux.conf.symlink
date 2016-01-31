@@ -9,11 +9,18 @@ bind Space send-prefix
 bind r source-file ~/.tmux.conf
 
 set -g base-index 1
-set -g pane-base-index 1
+setw -g pane-base-index 1
+
 set -g default-terminal "screen-256color"
 set -g pane-border-fg colour235
-set -g pane-active-border-fg colour3
+set -g pane-active-border-fg colour31
 set -g -q mouse on
+set -g renumber-windows on
+
+set -g set-titles on
+set -g set-titles-string "#H #W"
+
+setw -g monitor-activity on
 
 # Smart pane switching with awareness of vim splits
 # See: https://github.com/christoomey/vim-tmux-navigator
@@ -25,7 +32,7 @@ bind -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
 bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 
 # Ensure vi mode for buffer navigation
-set -g mode-keys vi
+setw -g mode-keys vi
 
 # Use <Prefix>-Space for copy-mode instead of default
 unbind [
@@ -41,7 +48,4 @@ bind -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 # Update default copy binding of 'Enter' to also use copy-pipe
 unbind -t vi-copy Enter
 bind -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
-
-
-
 
