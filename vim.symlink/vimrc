@@ -79,10 +79,5 @@ set updatecount=20 " Update swap file every 20 characters
 "set modeline
 
 " Autocommands to set up filetypes
-au BufNewFile,BufRead .tmux.conf set filetype=tmux
-
-
-
-
-
+au BufNewFile,BufRead *tmux.conf* set filetype=tmux
 
