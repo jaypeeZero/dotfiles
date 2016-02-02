@@ -16,6 +16,7 @@ set -g pane-border-fg colour235
 set -g pane-active-border-fg colour31
 set -g -q mouse on
 set -g renumber-windows on
+set -g escape-time 0
 
 set -g set-titles on
 set -g set-titles-string "#H #W"
