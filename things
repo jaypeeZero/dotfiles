@@ -1,5 +1,0 @@
-brew install python
-brew install vim
-pip install powerline-status
-brew cask install font-meslo-lg-for-powerline
-pip install psutil
