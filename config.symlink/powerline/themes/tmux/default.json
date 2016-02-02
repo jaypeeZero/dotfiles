@@ -5,9 +5,9 @@
                 "function": "powerline.segments.common.bat.battery",
                 "args": {
                     "gamify": true,
-                    "steps": 6,
-                    "full_heart": "X",
-                    "empty_heart": "X",
+                    "steps": 20,
+                    "full_heart": "▮",
+                    "empty_heart": "▮",
                     "online": "⌁"
                 }
             },
@@ -20,7 +20,7 @@
                 "args": {
                     "minimum": 2
                 }
-            } 
+            }
         ]
     }
 }

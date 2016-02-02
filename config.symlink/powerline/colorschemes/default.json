@@ -35,8 +35,8 @@
 		"cpu_load_percent_gradient": { "fg": "green_yellow_orange_red", "bg": "gray0", "attrs": [] },
 		"battery":                   { "fg": "gray8", "bg": "gray0", "attrs": [] },
 		"battery_gradient":          { "fg": "white_red", "bg": "gray0", "attrs": [] },
-		"battery_full":              { "fg": "red", "bg": "gray0", "attrs": [] },
-		"battery_empty":             { "fg": "white", "bg": "gray0", "attrs": [] },
+		"battery_full":              { "fg": "green", "bg": "gray0", "attrs": [] },
+		"battery_empty":             { "fg": "gray5", "bg": "gray0", "attrs": [] },
 		"player":                    { "fg": "gray10", "bg": "black", "attrs": [] },
 		"user":                      { "fg": "white", "bg": "darkblue", "attrs": ["bold"] },
 		"branch":                    { "fg": "gray9", "bg": "gray2", "attrs": [] },
@@ -47,6 +47,6 @@
 		"cwd:current_folder":        "information:regular",
 		"cwd:divider":               { "fg": "gray7", "bg": "gray4", "attrs": [] },
 		"virtualenv":                { "fg": "white", "bg": "darkcyan", "attrs": [] },
-		"attached_clients":          { "fg": "gray8", "bg": "gray0", "attrs": [] }
+		"attached_clients":          { "fg": "gray8", "bg": "red", "attrs": [] }
 	}
 }
