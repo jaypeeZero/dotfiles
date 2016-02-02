@@ -76,6 +76,6 @@ else
 fi
 
 echo ""
-echo "installing powerline-status..."
+echo "Installing powerline-status..."
 pip install powerline-status
 
