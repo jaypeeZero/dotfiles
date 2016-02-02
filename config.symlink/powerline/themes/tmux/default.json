@@ -1,28 +1,26 @@
 {
-	"segments": {
-		"right": [
-			{
-				"function": "powerline.segments.common.sys.uptime",
-				"priority": 50
-			},
-			{
-				"function": "powerline.segments.common.sys.system_load",
-				"priority": 50
-			},
-			{
-				"function": "powerline.segments.common.time.date"
-			},
-			{
-				"function": "powerline.segments.common.time.date",
-				"name": "time",
-				"args": {
-					"format": "%H:%M",
-					"istime": true
-				}
-			},
-			{
-				"function": "powerline.segments.common.net.hostname"
-			}
-		]
-	}
+    "segments": {
+        "right": [
+            {
+                "function": "powerline.segments.common.bat.battery",
+                "args": {
+                    "gamify": true,
+                    "steps": 6,
+                    "full_heart": "X",
+                    "empty_heart": "X",
+                    "online": "⌁"
+                }
+            },
+            {
+                "function": "powerline.segments.common.net.hostname"
+            },
+            {
+                "function": "powerline.segments.tmux.attached_clients",
+                "name": "attached_clients",
+                "args": {
+                    "minimum": 2
+                }
+            } 
+        ]
+    }
 }
