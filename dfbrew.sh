@@ -4,7 +4,7 @@
 
 # Ask for admin password upfront
 sudo -v
-# Run a keep-alive 
+# Run a keep-alive
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Check for Homebrew and install it if we don't have it
@@ -44,6 +44,7 @@ brew install "${binaries[@]}"
 #brew install caskroom/cask/brew-cask
 
 casks=(
+    flux
     font-meslo-lg-for-powerline
     tcl
 )
