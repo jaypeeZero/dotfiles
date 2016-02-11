@@ -24,15 +24,17 @@ echo "Brew Update..."
 brew update
 
 binaries=(
+    carthage
     cloc
     git
     git-annex
-    carthage
     python
-    vim
-    tmux
+    rbenv
     reattach-to-user-namespace
+    ruby-build
+    tmux
     tree
+    vim --env-std --override-system-vim
 )
 
 echo ""
