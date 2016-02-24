@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 #
 # Brew all the things
 
@@ -32,6 +32,7 @@ binaries=(
     rbenv
     reattach-to-user-namespace
     ruby-build
+    tig
     tmux
     tree
     vim --env-std --override-system-vim
@@ -48,7 +49,6 @@ brew install "${binaries[@]}"
 casks=(
     flux
     font-meslo-lg-for-powerline
-    tcl
 )
 
 echo ""
