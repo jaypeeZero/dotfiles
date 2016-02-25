@@ -15,7 +15,6 @@ do
   source $file
 done  
 
-
 # Then source all .bash files that are not path or completion
 for file in ${all_files[*]}
 do
@@ -36,3 +35,6 @@ done
 
 unset DF
 unset all_files
+
+# I prefer vi mode for command-line editing
+set -o vi
