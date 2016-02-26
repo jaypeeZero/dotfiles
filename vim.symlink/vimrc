@@ -29,6 +29,9 @@ Bundle 'tmux-plugins/vim-tmux'
 " Work better with tmux
 Bundle 'christoomey/vim-tmux-navigator'
 
+" Work better with git
+Bundle 'tpope/vim-fugitive'
+
 " Done with Vundle and bundles
 call vundle#end()
 filetype plugin indent on
