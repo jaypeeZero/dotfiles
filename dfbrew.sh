@@ -49,6 +49,7 @@ brew install "${binaries[@]}"
 casks=(
     flux
     font-meslo-lg-for-powerline
+    vlc
 )
 
 echo ""
