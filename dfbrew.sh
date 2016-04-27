@@ -47,6 +47,7 @@ brew install "${binaries[@]}"
 #brew install caskroom/cask/brew-cask
 
 casks=(
+    fluid
     flux
     font-meslo-lg-for-powerline
     keepingyouawake
