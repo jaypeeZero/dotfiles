@@ -5,3 +5,9 @@ cleandd() {
 
 alias cleardd=cleandd
 
+function openws {
+    for f in ./*.xcworkspace; do
+        open "${f}"
+        break;
+    done
+}
