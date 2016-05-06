@@ -16,6 +16,6 @@
 	br = branch
 	graph = log --oneline --color --graph --decorate
 [push]
-	default = matching
+	default = simple
 [include]
 	path = .local.gitconfig
