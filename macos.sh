@@ -214,6 +214,17 @@ defaults write com.apple.AppleMultitouchTrackpad HIDScrollZoomModifierMask -int 
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad HIDScrollZoomModifierMask -int 262144
 
 
+#
+# Flux
+#
+
+echo -e "Flux: set wake time to 7am"
+defaults write com.herf.Flux wakeTime 420
+
+echo -e "Flux: sleep late on weekends"
+defaults write com.herf.Flux sleepLate 1
+
+
 #echo -e "
 #####################
 ###     Reset     ###
