@@ -67,7 +67,6 @@ echo "Brew Update..."
 brew update
 
 binaries=(
-	bash
     carthage
     cloc
     git
@@ -79,7 +78,7 @@ binaries=(
     tig
     tmux
     tree
-    vim --env-std --override-system-vim
+    vim
 )
 
 echo ""
@@ -113,7 +112,7 @@ fonts=(
 
 echo ""
 echo "Brew Cask Fonts..."
-for font in "fonts[@]}"; do
+for font in "${fonts[@]}"; do
 	brew cask install "${font}"
 done
 
