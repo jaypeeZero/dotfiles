@@ -88,6 +88,7 @@ for app in "${binaries[@]}"; do
 done
 
 casks=(
+    charles
     fluid
     flux
 	google-chrome
