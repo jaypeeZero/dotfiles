@@ -93,6 +93,7 @@ casks=(
     flux
 	google-chrome
     keepingyouawake
+    postman
     vlc
 	wwdc
 )
