@@ -88,6 +88,7 @@ for app in "${binaries[@]}"; do
 done
 
 casks=(
+    appcleaner
     charles
     fluid
     flux
