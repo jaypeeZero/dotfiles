@@ -162,13 +162,13 @@ echo -e "Keyboard: set a really fast key repeat rate $CHK"
 defaults write NSGlobalDomain KeyRepeat -int 0
 
 echo -e "Keyboard: disable press-and-hold for keys in favor of key repeat $CHK"
-defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # echo -e "Keyboard: enable full keyboard access for all controls, such as tab in modal dialogs $CHK"
 # defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-#echo -e "Keyboard: Disable autocorrect"
-#defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+echo -e "Keyboard: Disable autocorrect"
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 
 
