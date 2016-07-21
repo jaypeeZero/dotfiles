@@ -44,7 +44,6 @@ brew_install_or_upgrade() {
     brew install "$@"
   fi
 }
-
 ######################
 # Actual Brew Things #
 ######################
@@ -66,29 +65,38 @@ echo ""
 echo "Brew Update..."
 brew update
 
-binaries=(
-    carthage
-    cloc
-    git
-    git-annex
-    python
-    rbenv
-    reattach-to-user-namespace
-    ruby-build
-    tig
-    tmux
-    tree
-    vim
+casks=(
+    appcleaner
+    charles
+    fluid
+    flux
+	google-chrome
+    keepingyouawake
+    postman
+    vlc
+	wwdc
 )
 
 echo ""
-echo "Brew Binaries..."
-for app in "${binaries[@]}"; do
-	brew_install_or_upgrade "${app}"
+echo "Brew Casks..."
+for cask in "${casks[@]}"; do
+	brew cask install "${cask}"
+done
+
+echo ""
+echo "Tap Caskroom Fonts..."
+brew tap caskroom/fonts
+
+fonts=(
+    font-meslo-lg-for-powerline
+)
+
+echo ""
+echo "Brew Cask Fonts..."
+for font in "${fonts[@]}"; do
+	brew cask install "${font}"
 done
 
 echo ""
 echo "Cleanup..."
 brew cleanup
-
-
