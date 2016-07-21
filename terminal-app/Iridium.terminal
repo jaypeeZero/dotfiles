@@ -158,11 +158,11 @@
 	AAAAABkAAAAAAAAAAAAAAAAAAADb
 	</data>
 	<key>Bell</key>
-	<false/>
+	<true/>
 	<key>BlinkText</key>
 	<false/>
 	<key>CommandString</key>
-	<string>tmux a -t 0 || tmux new</string>
+	<string></string>
 	<key>Font</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGGBlYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -179,7 +179,7 @@
 	<key>ProfileCurrentVersion</key>
 	<real>2.04</real>
 	<key>RunCommandAsShell</key>
-	<false/>
+	<true/>
 	<key>ScrollbackLines</key>
 	<integer>0</integer>
 	<key>SelectionColor</key>
@@ -230,6 +230,8 @@
 	<key>UseBoldFonts</key>
 	<true/>
 	<key>UseBrightBold</key>
+	<true/>
+	<key>VisualBellOnlyWhenMuted</key>
 	<true/>
 	<key>WindowTitle</key>
 	<string></string>
