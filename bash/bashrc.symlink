@@ -2,12 +2,6 @@
 #
 # Based on https://github.com/holman/dotfiles/blob/master/zsh/zshrc.symlink
 
-# Automatically start tmux on each login if not done already
-# Attaches to current one or starts a new session (if not already inside a session)
-if which tmux >/dev/null 2>&1; then
-  test -z "$TMUX" && (tmux attach || tmux new-session)
-fi
-
 DF=$HOME/.df
 
 all_files=($DF/**/*.bash)
