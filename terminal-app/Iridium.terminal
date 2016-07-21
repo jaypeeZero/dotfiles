@@ -162,7 +162,7 @@
 	<key>BlinkText</key>
 	<false/>
 	<key>CommandString</key>
-	<string></string>
+	<string>tmux a || tmux new-session</string>
 	<key>Font</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGGBlYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -179,7 +179,7 @@
 	<key>ProfileCurrentVersion</key>
 	<real>2.04</real>
 	<key>RunCommandAsShell</key>
-	<true/>
+	<false/>
 	<key>ScrollbackLines</key>
 	<integer>0</integer>
 	<key>SelectionColor</key>
