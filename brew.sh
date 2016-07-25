@@ -87,6 +87,38 @@ for app in "${binaries[@]}"; do
 	brew_install_or_upgrade "${app}"
 done
 
+casks=(
+    appcleaner
+    charles
+    fluid
+    flux
+	google-chrome
+    keepingyouawake
+    postman
+    vlc
+	wwdc
+)
+
+echo ""
+echo "Brew Casks..."
+for cask in "${casks[@]}"; do
+	brew cask install "${cask}"
+done
+
+echo ""
+echo "Tap Caskroom Fonts..."
+brew tap caskroom/fonts
+
+fonts=(
+    font-meslo-lg-for-powerline
+)
+
+echo ""
+echo "Brew Cask Fonts..."
+for font in "${fonts[@]}"; do
+	brew cask install "${font}"
+done
+
 echo ""
 echo "Cleanup..."
 brew cleanup
