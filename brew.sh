@@ -69,8 +69,10 @@ brew update
 binaries=(
     carthage
     cloc
+    dockutil
     git
     git-annex
+    mas
     python
     rbenv
     reattach-to-user-namespace
