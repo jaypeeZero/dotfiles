@@ -17,3 +17,4 @@ for file in $symlinks; do
     echo "Installing $target"
     ln -s "$PWD/$file" "$target"
 done
+
