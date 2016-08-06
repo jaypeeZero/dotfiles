@@ -13,7 +13,7 @@ Before bootstrapping, go to `System Preferences -> Sharing` and choose a good co
 The simplest way to run the bootstrapping script is to `curl` it and pipe it to `bash`. This can be done either in Terminal in a new box, or over SSH. Going the SSH route will help enforce that everything is done by command line only.
 
 ```
-bash <(curl -s https://raw.githubusercontent.com/kdbertel/macos_setup/master/bootstrap.sh)
+bash <(curl -s https://raw.githubusercontent.com/kdbertel/dotfiles/master/bootstrap_mac.sh)
 ```
 
 ## Bootstrap contents
