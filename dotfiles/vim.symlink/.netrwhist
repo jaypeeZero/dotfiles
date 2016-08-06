@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/Keith/.df/config.symlink/powerline/colorschemes'
+let g:netrw_dirhist_2='/Users/Keith/Asynchrony/Ionic/box_setup'
+let g:netrw_dirhist_3='/Users/Keith/.df/ruby'
+let g:netrw_dirhist_4='/private/var/folders/zc/gpw0jz5j1fd06j4wkh1my41m0000gn/0/com.apple.dock.launchpad'
+let g:netrw_dirhist_5='/private/var/folders/zc/gpw0jz5j1fd06j4wkh1my41m0000gn/0/com.apple.dock.launchpad/db'
+let g:netrw_dirhist_6='/private/var/folders/zc/gpw0jz5j1fd06j4wkh1my41m0000gn/0/com.apple.dock.launchpad'
+let g:netrw_dirhist_7='/private/var/folders/zc/gpw0jz5j1fd06j4wkh1my41m0000gn/0/com.apple.dock.launchpad/db'
