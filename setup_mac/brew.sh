@@ -2,15 +2,56 @@
 #
 # Brew all the things
 
-# Ask for admin password upfront
-sudo -v
+##################
+# Things to brew #
+##################
 
-# Run a keep-alive
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+binaries=(
+    bash
+    carthage
+    cloc
+    dockutil
+    git
+    git-annex
+    mas
+    python
+    rbenv
+    reattach-to-user-namespace
+    ruby-build
+    tig
+    tmux
+    tree
+    vim
+)
+
+casks=(
+    appcleaner
+    atom
+    charles
+    dropbox
+    fluid
+    flux
+    google-chrome
+    google-drive
+    keepingyouawake
+    postman
+    textmate
+    vlc
+    wwdc
+)
+
+fonts=(
+    font-meslo-lg-for-powerline
+    font-source-code-pro
+    font-source-sans-pro
+    font-source-serif-pro
+)
+
 
 #####################
 # Utility Functions #
 #####################
+
 brew_expand_alias() {
   brew info "$1" 2>/dev/null | head -1 | awk '{gsub(/:/, ""); print $1}'
 }
@@ -34,30 +75,21 @@ brew_is_upgradable() {
 brew_install_or_upgrade() {
   if brew_is_installed "$1"; then
     if brew_is_upgradable "$1"; then
-      echo "Upgrading $1..."
+      echo "$1: Upgrading"
       brew upgrade "$@"
     else
-      echo "Already using the latest version of $1. Skipping..."
+      echo "$1: Already up-to-date"
     fi
   else
-    echo "Installing $1..."
+    echo "$1: Installing"
     brew install "$@"
   fi
 }
 
-######################
-# Actual Brew Things #
-######################
 
-# Check for Homebrew and install it if we don't have it
-if [ ! -f "$(which brew)" ]; then
-    echo "Installing Homebrew..."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	chown /usr/local `whoami`
-else
-    echo "Homebrew found."
-fi
-echo ""
+#####################
+# Keep Brew Updated #
+#####################
 
 echo "Brew Doctor..."
 brew doctor
@@ -66,40 +98,32 @@ echo ""
 echo "Brew Update..."
 brew update
 
-binaries=(
-    carthage
-    cloc
-    dockutil
-    git
-    git-annex
-    mas
-    python
-    rbenv
-    reattach-to-user-namespace
-    ruby-build
-    tig
-    tmux
-    tree
-    vim
-)
+if [[ -z $(brew tap | grep 'caskroom/cask') ]]; then
+    echo ""
+    echo "Tap Casks..."
+    brew tap caskroom/cask
+fi
+
+echo ""
+echo "Brew Cask Update..."
+brew cask update
+
+if [[ -z $(brew tap | grep 'caskroom/fonts') ]]; then
+    echo ""
+    echo "Tap Caskroom Fonts..."
+    brew tap caskroom/fonts
+fi
+
+
+########################
+# Actually Brew Things #
+########################
 
 echo ""
 echo "Brew Binaries..."
 for app in "${binaries[@]}"; do
 	brew_install_or_upgrade "${app}"
 done
-
-casks=(
-    appcleaner
-    charles
-    fluid
-    flux
-	google-chrome
-    keepingyouawake
-    postman
-    vlc
-	wwdc
-)
 
 echo ""
 echo "Brew Casks..."
@@ -108,21 +132,18 @@ for cask in "${casks[@]}"; do
 done
 
 echo ""
-echo "Tap Caskroom Fonts..."
-brew tap caskroom/fonts
-
-fonts=(
-    font-meslo-lg-for-powerline
-)
-
-echo ""
 echo "Brew Cask Fonts..."
 for font in "${fonts[@]}"; do
 	brew cask install "${font}"
 done
 
+
+#########
+# Clean #
+#########
+
 echo ""
 echo "Cleanup..."
 brew cleanup
-
+brew cask cleanup
 
