@@ -2,12 +2,6 @@
 #
 # All the ruby things
 
-# Ask for admin password upfront
-sudo -v
-
-# Run a keep-alive
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 ################
 # Manage RBENV #
 ################

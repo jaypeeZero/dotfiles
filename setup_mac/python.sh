@@ -2,12 +2,6 @@
 #
 # All the python things
 
-# Ask for admin password upfront
-sudo -v
-
-# Run a keep-alive
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 if [ ! -f "$(which pip)" ]; then
   echo "Installing pip..."
   curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python2.7
