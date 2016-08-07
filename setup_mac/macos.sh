@@ -19,6 +19,9 @@ defaults write com.apple.finder ShowPathbar -bool true
 echo -e "Finder: show the ~/Library folder $CHK"
 chflags nohidden ~/Library
 
+echo -e "Finder: hide hidden files $CHK"
+defaults write com.apple.finder AppleShowAllFiles -bool false
+
 echo -e "Finder: show all filename extensions $CHK"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
@@ -164,7 +167,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 # echo -e "Keyboard: enable full keyboard access for all controls, such as tab in modal dialogs $CHK"
 # defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-echo -e "Keyboard: Disable autocorrect $CHK"
+echo -e "Keyboard: disable autocorrect $CHK"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 
@@ -217,10 +220,10 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad HIDScrollZoomM
 ####################
 #"
 
-echo -e "Flux: Set wake time to 7am $CHK"
+echo -e "Flux: set wake time to 7am $CHK"
 defaults write com.herf.Flux wakeTime 420
 
-echo -e "Flux: Sleep late on weekends $CHK"
+echo -e "Flux: sleep late on weekends $CHK"
 defaults write com.herf.Flux sleepLate 1
 
 
