@@ -2,9 +2,6 @@
 
 CHK="\033[0;32m \xE2\x9c\x94 \033[0m"
 
-sudo -v
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 echo -e "Configuring macOS..."
 
 #echo -e "
@@ -87,7 +84,7 @@ defaults write com.apple.screencapture disable-shadow -bool true
 ########################
 #"
 
-echo -e "Terminal: disable line marks"
+echo -e "Terminal: disable line marks $CHK"
 defaults write com.apple.terminal ShowLineMarks -bool false
 
 echo -e "Terminal: use Iridium $CHK"
@@ -120,7 +117,7 @@ defaults write com.apple.Safari ShowSidebarInNewWindows -bool false
 echo -e "Safari: hide sidebar in Top Sites $CHK"
 defaults write com.apple.Safari ShowSidebarInTopSites -bool false
 
-echo -e "Safari: blank pages on new tabs/windows"
+echo -e "Safari: blank pages on new tabs/windows $CHK"
 defaults write com.apple.Safari NewTabBehavior -int 1
 defaults write com.apple.Safari NewWindowBehavior -int 1
 
@@ -133,10 +130,10 @@ defaults write com.apple.Safari AutoFillFromAddressBook -bool false
 defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
 defaults write com.apple.Safari AutoFillPasswords -bool false
 
-echo -e "Safari: disable automatically opening \"safe\" downloads"
+echo -e "Safari: disable automatically opening \"safe\" downloads $CHK"
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
-echo -e "Safari: enable devloper menu"
+echo -e "Safari: enable devloper menu $CHK"
 defaults write com.apple.Safari IncludeDeveloperMenu -bool true
 
 echo -e "Safari: search as \"contains\" instead of \"starts with\" $CHK"
@@ -167,7 +164,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 # echo -e "Keyboard: enable full keyboard access for all controls, such as tab in modal dialogs $CHK"
 # defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-echo -e "Keyboard: Disable autocorrect"
+echo -e "Keyboard: Disable autocorrect $CHK"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 
@@ -214,14 +211,16 @@ defaults write com.apple.AppleMultitouchTrackpad HIDScrollZoomModifierMask -int 
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad HIDScrollZoomModifierMask -int 262144
 
 
-#
-# Flux
-#
+#echo -e "
+####################
+###     Flux     ###
+####################
+#"
 
-echo -e "Flux: set wake time to 7am"
+echo -e "Flux: Set wake time to 7am $CHK"
 defaults write com.herf.Flux wakeTime 420
 
-echo -e "Flux: sleep late on weekends"
+echo -e "Flux: Sleep late on weekends $CHK"
 defaults write com.herf.Flux sleepLate 1
 
 
@@ -231,8 +230,11 @@ defaults write com.herf.Flux sleepLate 1
 #####################
 #"
 
-killall Finder
-killall SystemUIServer
-killall Dock
+for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
+	"Dock" "Finder" "Flux" "Google Chrome" "Mail" "Messages" \
+	"Opera" "Photos" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
+	"Transmission" "Tweetbot" "Twitter" "iCal"; do
+	killall "${app}" &> /dev/null
+done
 
 echo -e "macOS configuration complete. Restart computer to see any changes not already visible."
