@@ -228,6 +228,19 @@ defaults write com.herf.Flux sleepLate 1
 
 
 #echo -e "
+#######################
+###     MacDown     ###
+#######################
+#"
+
+echo -e "MacDown: ensure newlines at the end of files $CHK"
+defaults write com.uranusjr.macdown.plist editorEnsuresNewlineAtEndOfFile -bool true
+
+echo -e "MacDown: suppres untitled document on launch $CHK"
+defaults write com.uranusjr.macdown.plist supressesUntitledDocumentOnLaunch -bool true
+
+
+#echo -e "
 #####################
 ###     Reset     ###
 #####################

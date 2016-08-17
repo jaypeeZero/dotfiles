@@ -34,6 +34,7 @@ casks=(
     google-chrome
     google-drive
     keepingyouawake
+    macdown
     postman
     textmate
     vlc
