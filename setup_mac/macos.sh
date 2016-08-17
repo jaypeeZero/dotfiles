@@ -245,11 +245,11 @@ defaults write com.uranusjr.macdown SUEnableAutomaticChecks -bool true
 #####################
 #"
 
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-	"Dock" "Finder" "Flux" "Google Chrome" "Mail" "Messages" \
-	"Opera" "Photos" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
-	"Transmission" "Tweetbot" "Twitter" "iCal"; do
-	killall "${app}" &> /dev/null
-done
+# for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
+#     "Dock" "Finder" "Flux" "Google Chrome" "Mail" "Messages" \
+#     "Opera" "Photos" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
+#     "Transmission" "Tweetbot" "Twitter" "iCal"; do
+#     killall "${app}" &> /dev/null
+# done
 
 echo -e "macOS configuration complete. Restart computer to see any changes not already visible."
