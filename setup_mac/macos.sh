@@ -228,6 +228,16 @@ defaults write com.herf.Flux sleepLate 1
 
 
 #echo -e "
+########################
+###     TextMate     ###
+########################
+#"
+
+echo -e "TextMate: turn off automatically adding closing characters $CHK"
+defaults write com.macromates.TextMate.preview disableTypingPairs -bool true
+
+
+#echo -e "
 #######################
 ###     MacDown     ###
 #######################
@@ -238,6 +248,7 @@ defaults write com.uranusjr.macdown editorEnsuresNewlineAtEndOfFile -bool true
 
 echo -e "MacDown: turn on automatic updates $CHK"
 defaults write com.uranusjr.macdown SUEnableAutomaticChecks -bool true
+
 
 #echo -e "
 #####################
