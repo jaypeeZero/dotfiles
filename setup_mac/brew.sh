@@ -14,6 +14,7 @@ binaries=(
     git
     git-annex
     mas
+    multimarkdown
     python
     rbenv
     reattach-to-user-namespace
