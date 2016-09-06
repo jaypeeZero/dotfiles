@@ -18,3 +18,5 @@ alias mv='mv -i'
 alias cp='cp -i'
 
 alias vi='vim'
+
+alias be='bundle exec'
