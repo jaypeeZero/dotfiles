@@ -47,8 +47,6 @@ gem_install_or_update() {
 
 gems=(
   bundler
-  xcode-install
-  xcpretty
 )
 
 echo -e "Installing gems..."
