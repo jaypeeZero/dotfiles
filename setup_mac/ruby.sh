@@ -25,10 +25,8 @@ rbenv_set_global() {
 }
 
 echo "Installing ruby versions using rbenv..."
-rbenv_install_version 2.2.0
-rbenv_install_version 2.2.2
-rbenv_install_version 2.2.3
-rbenv_set_global 2.2.0
+rbenv_install_version 2.3.1
+rbenv_set_global 2.3.1
 
 ###############
 # Manage gems #

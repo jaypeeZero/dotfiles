@@ -18,16 +18,7 @@ done
 # Then source all .bash files that are not path or completion
 for file in ${all_files[*]}
 do
-  if [[ $file == */path.bash ]] || [[ $file == */completion.bash ]]; then
-    continue
-  fi
-  source $file
-done
-
-# Finally all completion files
-for file in ${all_files[*]}
-do
-  if [[ $file != */completion.bash ]]; then
+  if [[ $file == */path.bash ]]; then
     continue
   fi
   source $file
