@@ -32,6 +32,7 @@ casks=(
     dropbox
     fluid
     flux
+    gimp
     google-chrome
     google-drive
     keepingyouawake
