@@ -35,6 +35,7 @@ casks=(
     gimp
     google-chrome
     google-drive
+    inkscape
     keepingyouawake
     macdown
     postman
