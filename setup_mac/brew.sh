@@ -130,6 +130,8 @@ for app in "${binaries[@]}"; do
 	brew_install_or_upgrade "${app}"
 done
 
+brew install imagemagick --with-librsvg
+
 echo ""
 echo "Brew Casks..."
 for cask in "${casks[@]}"; do
