@@ -158,11 +158,14 @@ defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
 ########################
 #"
 
-echo -e "Keyboard: set a really fast key repeat rate $CHK"
-#defaults write NSGlobalDomain KeyRepeat -int 0
+echo -e "Keyboard: set the fastes key repeat rate $CHK"
+defaults write NSGlobalDomain KeyRepeat -int 2
 
 echo -e "Keyboard: disable press-and-hold for keys in favor of key repeat $CHK"
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+echo -e "Keyboard: speed up initial key repeat $CHK"
+defaults write NSGlobalDomain InitialKeyRepeat -int 25
 
 # echo -e "Keyboard: enable full keyboard access for all controls, such as tab in modal dialogs $CHK"
 # defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
