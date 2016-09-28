@@ -16,9 +16,7 @@ binaries=(
     mas
     multimarkdown
     python
-    rbenv
     reattach-to-user-namespace
-    ruby-build
     tig
     tmux
     tree
