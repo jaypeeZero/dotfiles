@@ -9,6 +9,7 @@
 binaries=(
     bash
     carthage
+    chruby
     cloc
     dockutil
     git
@@ -17,6 +18,7 @@ binaries=(
     multimarkdown
     python
     reattach-to-user-namespace
+    ruby-install
     tig
     tmux
     tree
