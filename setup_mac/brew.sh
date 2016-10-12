@@ -14,7 +14,6 @@ binaries=(
     dockutil
     git
     git-annex
-    htmldoc
     mas
     multimarkdown
     python
