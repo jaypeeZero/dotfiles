@@ -11,6 +11,7 @@ binaries=(
     carthage
     chruby
     cloc
+    coreutils
     dockutil
     git
     git-annex
