@@ -82,7 +82,7 @@ brew_install_or_upgrade() {
   if brew_is_installed "$1"; then
     if brew_is_upgradable "$1"; then
       echo "$1: Upgrading"
-      brew upgrade "$@"
+      #brew upgrade "$@"
     else
       echo "$1: Already up-to-date"
     fi
