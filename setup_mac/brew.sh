@@ -24,6 +24,7 @@ binaries=(
     tmux
     tree
     vim
+    webfsd
 )
 
 casks=(
