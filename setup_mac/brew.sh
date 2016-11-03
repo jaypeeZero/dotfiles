@@ -42,6 +42,7 @@ casks=(
     keepingyouawake
     macdown
     postman
+    table-tool
     textmate
     vlc
     wwdc
