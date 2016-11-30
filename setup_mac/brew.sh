@@ -42,6 +42,7 @@ casks=(
     keepingyouawake
     macdown
     postman
+    steam
     table-tool
     textmate
     vlc
