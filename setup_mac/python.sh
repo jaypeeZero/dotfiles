@@ -26,3 +26,6 @@ pip_install_or_upgrade() {
 
 pip_install_or_upgrade psutil
 pip_install_or_upgrade powerline-status
+pip_install_or_upgrade rebound
+pip_install_or_upgrade matplotlib
+

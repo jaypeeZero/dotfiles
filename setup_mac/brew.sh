@@ -13,6 +13,7 @@ binaries=(
     cloc
     coreutils
     dockutil
+    ffmpeg
     git
     git-annex
     mas
