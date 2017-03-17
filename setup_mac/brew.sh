@@ -16,6 +16,7 @@ binaries=(
     ffmpeg
     git
     git-annex
+    gs
     mas
     multimarkdown
     python
@@ -43,6 +44,7 @@ casks=(
     keepingyouawake
     macdown
     postman
+    scribus
     steam
     table-tool
     textmate
