@@ -58,3 +58,5 @@ echo -e "
 ###     BREW BUNDLE     ###
 ###########################
 "
+
+brew bundle -v --file="~/.df/files/Brewfile"
