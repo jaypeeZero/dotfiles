@@ -53,3 +53,8 @@ else
     echo "Dotfiles already cloned"
 fi
 
+echo -e "
+###########################
+###     BREW BUNDLE     ###
+###########################
+"
