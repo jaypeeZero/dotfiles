@@ -157,3 +157,13 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
 else
     ~/.tmux/plugins/tpm/bin/update_plugins all
 fi
+mkdir -p ~/.tmux/resurrect/
+
+
+echo -e "
+##############################
+###     MACOS SETTINGS     ###
+##############################
+"
+
+~/.df/setup_mac/macos.sh
