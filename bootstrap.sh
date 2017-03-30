@@ -42,6 +42,19 @@ fi
 
 
 echo -e "
+############################
+###     INSTALL STOW     ###
+############################
+"
+
+if $(brew list -1 | grep -Fqx "stow"); then
+    echo "Stow already installed"
+else
+    brew install stow
+fi
+
+
+echo -e "
 ###################################
 ###     CLONE DOTFILES REPO     ###
 ###################################
@@ -53,10 +66,20 @@ else
     echo "Dotfiles already cloned"
 fi
 
+
+echo -e "
+#############################
+###     STOW DOTFILES     ###
+#############################
+"
+
+stow --verbose --restow --dir ~/.df/ --target ~/ --ignore=\.DS_Store dotfiles
+
+
 echo -e "
 ###########################
 ###     BREW BUNDLE     ###
 ###########################
 "
 
-brew bundle -v --file="~/.df/files/Brewfile"
+brew bundle -v --global
