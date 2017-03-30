@@ -143,3 +143,17 @@ end tell
 EOD
 
 echo "Iridium terminal theme installed"
+
+
+echo -e "
+############################
+###     TMUX PLUGINS     ###
+############################
+"
+
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ~/.tmux/plugins/tpm/bin/install_plugins
+else
+    ~/.tmux/plugins/tpm/bin/update_plugins all
+fi
