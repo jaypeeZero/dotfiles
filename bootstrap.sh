@@ -113,6 +113,23 @@ ruby-install -c --no-reinstall ruby-2.3.1
 gem install bundler --conservative
 
 
+echo -e "
+###########################
+###     INSTALL PIP     ###
+###########################
+"
+
+pip install --upgrade pip
+
+
+echo -e "
+###########################
+###     PIP PACKAGES    ###
+###########################
+"
+
+pip install --user -r ~/.Pipfile
+
 
 echo -e "
 ##############################################

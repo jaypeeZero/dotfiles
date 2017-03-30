@@ -11,6 +11,8 @@ brew 'ruby'
 brew 'chruby'
 brew 'ruby-install'
 
+brew 'python'
+
 tap 'caskroom/cask'
 cask 'slack'
 cask 'textmate'
