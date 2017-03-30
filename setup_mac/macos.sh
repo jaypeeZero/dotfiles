@@ -240,6 +240,12 @@ echo -e "TextMate: turn off automatically adding closing characters $CHK"
 defaults write com.macromates.TextMate.preview disableTypingPairs -bool true
 
 
+
+echo -e "1Password: turn off autosubmit $CHK"
+defaults write 2BUA8C4S2C.com.agilebits.onepassword4-helper autosubmit -bool false
+
+
+
 #echo -e "
 #######################
 ###     MacDown     ###
