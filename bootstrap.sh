@@ -102,3 +102,17 @@ else
     echo "Brew bash already set as shell"
 fi
 
+
+echo -e "
+##############################################
+###     INSTALL IRIDIUM TERMINAL THEME     ###
+##############################################
+"
+if $(/usr/libexec/PlistBuddy -c "print 'Window Settings':Iridium" ~/Library/Preferences/com.apple.Terminal.plist >/dev/null 2>&1); then
+    echo "Iridium already installed as Terminal theme"
+else
+    open ~/.df/files/Iridium.terminal
+    osascript -e 'tell application "Terminal" to do script "exit" in window 1' >/dev/null 2>&1
+    echo "Iridium installed as Terminal theme"
+fi
+
