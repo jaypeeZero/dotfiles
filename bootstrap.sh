@@ -142,4 +142,4 @@ tell application "Terminal"
 end tell
 EOD
 
-
+echo "Iridium terminal theme installed"
