@@ -12,8 +12,10 @@ Before bootstrapping, go to `System Preferences -> Sharing` and choose a good co
 
 The simplest way to run the bootstrapping script is to `curl` it and pipe it to `bash`. This can be done either in Terminal in a new box, or over SSH. Going the SSH route will help enforce that everything is done by command line only.
 
+Because this is my personal stuff, and I know what's in the shell script, I'm fine with just running the curl command:
+
 ```
-bash <(curl -s https://raw.githubusercontent.com/kdbertel/dotfiles/master/bootstrap_mac.sh)
+bash <(curl -s https://raw.githubusercontent.com/kdbertel/dotfiles/master/bootstrap.sh)
 ```
 
 ## Bootstrap contents
@@ -23,24 +25,14 @@ The following things are needed for the setup scripts to make any sort of sense.
 - Generate an SSH key pair; the public key needs to be provided to Github so that Github repositories can be cloned over SSH
 - Install Homebrew; as a side effect, this will install the macOS command-line tools, which includes a version of `git`
 - Clone this repository into `~/.df`
+- Stow dotfiles
+- Other things necessary for setting up my environment
 
 # Setup Scripts
 
 Someday I will write up what my setup scripts actually do
 
-# Dotfile Linking
-
-To just link dotfiles instead of doing the entire setup:
-
-```
-./.df/link_dotfiles.sh
-```
-
 # To Do
 
 - [ ] Finish README
-- [ ] Rename dotfile linking script
-- [ ] Move to `chruby` maybe?
-- [ ] Vundle
-- [ ] Can I install tmux plugins without manual intervention?
-- [ ] Lots of other things
+
