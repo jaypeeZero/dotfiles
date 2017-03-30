@@ -36,3 +36,11 @@ Someday I will write up what my setup scripts actually do
 
 - [ ] Finish README
 
+# Manual Steps
+
+## Outlook
+- Set up account
+- Preferences -> Reading -> Mark mail as read -> When viewed ... `[1]`
+
+
+- [ ] Download and install Xcode
