@@ -109,8 +109,8 @@ echo -e "
 ############################
 "
 
-#ruby-install ruby-2.3.1
-#gem install bundler
+ruby-install -c --no-reinstall ruby-2.3.1
+gem install bundler --conservative
 
 
 
