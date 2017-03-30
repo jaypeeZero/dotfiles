@@ -83,3 +83,22 @@ echo -e "
 "
 
 brew bundle -v --global
+
+
+echo -e "
+######################################
+###     SET BREW BASH AS SHELL     ###
+######################################
+"
+if [[ "$SHELL" != "/usr/local/bin/bash" ]]; then
+    if $(grep -Fqx "/usr/local/bin/bash" /etc/shells); then
+        echo "Brew bash already included as standard shell"
+    else
+        echo "echo /usr/local/bin/bash >> /etc/shells"
+        sudo sh -c 'echo /usr/local/bin/bash >> /etc/shells'
+    fi
+    chsh -s /usr/local/bin/bash
+else
+    echo "Brew bash already set as shell"
+fi
+
