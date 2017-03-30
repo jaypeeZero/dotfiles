@@ -9,6 +9,7 @@ brew 'tmux'
 
 brew 'ruby'
 brew 'chruby'
+brew 'ruby-install'
 
 tap 'caskroom/cask'
 cask 'slack'
