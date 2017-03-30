@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # This file is only executed for login shells. That means it gets executed when logging in over SSH or logging into KDE, but not when a new OS X terminal window is opened
 
@@ -8,6 +8,3 @@ if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi
 
-#export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/sbin:$PATH
-
-#[[ -s "$HOME/.local.bash_profile" ]] && source "$HOME/.local.bash_profile"
