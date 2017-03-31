@@ -26,7 +26,7 @@ brew 'cloc'
 brew 'imagemagick', args: ['with-librsvg']
 brew 'multimarkdown'
 brew 'tree'
-brew 'webfsd'
+brew 'webfs'
 
 # Fonts
 tap 'caskroom/fonts'
