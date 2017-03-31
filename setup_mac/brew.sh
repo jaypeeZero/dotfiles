@@ -7,25 +7,25 @@
 ##################
 
 binaries=(
-    bash
+#    bash
     carthage
-    chruby
-    cloc
-    coreutils
+#    chruby
+#    cloc
+#    coreutils
     dockutil
     ffmpeg
-    git
+#    git
     git-annex
     gs
-    mas
-    multimarkdown
-    python
-    reattach-to-user-namespace
-    ruby-install
-    tig
-    tmux
-    tree
-    vim
+#    mas
+#    multimarkdown
+#    python
+#    reattach-to-user-namespace
+#    ruby-install
+#    tig
+#    tmux
+#    tree
+#    vim
     webfsd
 )
 
@@ -53,10 +53,10 @@ casks=(
 )
 
 fonts=(
-    font-meslo-lg-for-powerline
-    font-source-code-pro
-    font-source-sans-pro
-    font-source-serif-pro
+    # font-meslo-lg-for-powerline
+    # font-source-code-pro
+    # font-source-sans-pro
+    # font-source-serif-pro
 )
 
 
