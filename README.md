@@ -4,6 +4,17 @@ This repo contains my dotfiles along with scripts for programmatically setting u
 
 They are, as dotfiles/setup repos are apt to be, under constant construction.
 
+# Before Bootstrapping
+
+There are some manual steps to be done on a fresh macOS installation before bootstrapping. Most of these are things that simply cannot be scripted (as far as I can tell).
+
+- Sign in to iCloud account
+- System Preferences -> Keyboard -> Keyboard -> Modifier Keys -> Re-map `Caps Lock` to `Escape`
+
+## Note on remapping
+
+There might be ways of programmatically doing the caps lock to escape mapping, but they all seem to fall short of being able to properly detect the attached keyboards and 
+
 # Bootstrapping
 
 A completely fresh installation of macOS does not come with `git`, making the idea of cloning this repo and running all of the setup scripts a bit difficult. I've created a bootstrap script that will get a fresh box to the point where the setup scripts can be run.
