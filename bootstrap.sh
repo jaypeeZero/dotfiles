@@ -213,4 +213,4 @@ echo -e "
 ##############################
 "
 
-~/.df/setup_mac/macos.sh
+~/.df/macos_defaults.sh
