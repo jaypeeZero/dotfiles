@@ -36,7 +36,8 @@ echo -e "Finder: enable AirDrop over ethernet $CHK"
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
 echo -e "Finder: make new windows start at \$HOME $CHK"
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
+defaults write com.apple.finder NewWindowTarget -string 'PfHm'
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
 echo -e "Finder: don't show hard drives on desktop $CHK"
 defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
@@ -77,6 +78,10 @@ defaults write com.apple.dock mru-spaces -bool false
 echo -e "Hot Corners: set bottom-right to start screen saver $CHK"
 defaults write com.apple.dock wvous-br-corner -int 5
 defaults write com.apple.dock wvous-br-modifier -int 0
+
+echo -e "Screensaver: Set timeout value to five minutes $CHK"
+defaults -currentHost write com.apple.screensaver idleTime 300
+
 
 
 #echo -e "
