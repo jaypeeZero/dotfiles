@@ -237,7 +237,7 @@ defaults write com.herf.Flux sleepLate 1
 #"
 
 echo -e "TextMate: turn off automatically adding closing characters $CHK"
-defaults write com.macromates.TextMate.preview disableTypingPairs -bool true
+defaults write com.macromates.TextMate disableTypingPairs -bool true
 
 
 #echo -e "
