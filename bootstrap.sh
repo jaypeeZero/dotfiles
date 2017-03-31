@@ -77,6 +77,21 @@ stow --verbose --restow --dir ~/.df/ --target ~/ --ignore=\.DS_Store dotfiles
 
 
 echo -e "
+###################################
+###     INSTALL VIM PLUGINS     ###
+###################################
+"
+
+if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+else
+    echo "Vundle already installed"
+fi
+
+vim +PluginInstall +qall
+
+
+echo -e "
 ###########################
 ###     BREW BUNDLE     ###
 ###########################
