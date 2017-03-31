@@ -8,12 +8,7 @@ They are, as dotfiles/setup repos are apt to be, under constant construction.
 
 There are some manual steps to be done on a fresh macOS installation before bootstrapping. Most of these are things that simply cannot be scripted (as far as I can tell).
 
-- Sign in to iCloud account
-- System Preferences -> Keyboard -> Keyboard -> Modifier Keys -> Re-map `Caps Lock` to `Escape`
-
-## Note on remapping
-
-There might be ways of programmatically doing the caps lock to escape mapping, but they all seem to fall short of being able to properly detect the attached keyboards and 
+- Sign in to iCloud account and App Store
 
 # Bootstrapping
 
@@ -49,9 +44,21 @@ Someday I will write up what my setup scripts actually do
 
 # Manual Steps
 
+## System
+
+Re-map `Caps Lock` to `Escape`. There might be ways of automating this, but they're not good enough for my tastes yet.
+
+- System Preferences -> Keyboard -> Keyboard -> Modifier Keys -> Re-map `Caps Lock` to `Escape`
+
+## Finder
+
+New windows open in `$HOME`---this setting doesn't seem to take from defaults
+Re-organize sidebar---while this may be possible with `plistBuddy`, I don't want to go through the effort currently, and this is different for each of my computers
+
 ## Outlook
 - Set up account
 - Preferences -> Reading -> Mark mail as read -> When viewed ... `[1]`
 
+## Xcode
 
-- [ ] Download and install Xcode
+Download and install Xcode. You may want to run bootstrap again to make sure settings apply.

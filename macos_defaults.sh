@@ -35,6 +35,11 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 echo -e "Finder: enable AirDrop over ethernet $CHK"
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
+echo -e "Finder: make new windows start at \$HOME $CHK"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
+
+echo -e "Finder: don't show hard drives on desktop $CHK"
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 
 #echo -e "
 ##########################################################
@@ -59,6 +64,9 @@ defaults write com.apple.dock mineffect scale
 
 echo -e "Dock: disable magnification $CHK"
 defaults write com.apple.dock magnification -int 0
+
+echo -e "Dock: disable indicators for open applications $CHK"
+defaults write com.apple.dock show-process-indicators -bool false
 
 echo -e "Mission Control: do not group by app $CHK"
 defaults write com.apple.dock expose-group-by-app -bool false
