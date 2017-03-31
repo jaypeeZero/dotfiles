@@ -52,7 +52,6 @@ Re-map `Caps Lock` to `Escape`. There might be ways of automating this, but they
 
 ## Finder
 
-New windows open in `$HOME`---this setting doesn't seem to take from defaults
 Re-organize sidebar---while this may be possible with `plistBuddy`, I don't want to go through the effort currently, and this is different for each of my computers
 
 ## Outlook
