@@ -67,7 +67,7 @@ set smarttab " <Tab> respects 'shiftwidth', 'tabstop', 'softtabstop'
 set tabstop=4 " Visible width of tabs
 set softtabstop=4 " Edit as if tabs are 4 characters wide
 set shiftwidth=4 " Number of spaces to use for indenting
-set shiftround " Round indent to a multiple of 'siftwidth'
+set shiftround " Round indent to a multiple of 'shiftwidth'
 
 " Searching
 set incsearch " Do incremental searching (as you type)
@@ -82,6 +82,6 @@ set updatecount=20 " Update swap file every 20 characters
 "set modeline
 
 " Autocommands to set up filetypes
-au BufNewFile,BufRead *tmux.conf* set filetype=tmux
-au BufNewFile,BufRead *gitconfig* set filetype=gitconfig
+"au BufNewFile,BufRead *tmux.conf* set filetype=tmux
+"au BufNewFile,BufRead *gitconfig* set filetype=gitconfig
 
