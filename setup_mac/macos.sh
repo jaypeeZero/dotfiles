@@ -158,7 +158,7 @@ defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
 ########################
 #"
 
-echo -e "Keyboard: set the fastes key repeat rate $CHK"
+echo -e "Keyboard: set the fastest key repeat rate $CHK"
 defaults write NSGlobalDomain KeyRepeat -int 2
 
 echo -e "Keyboard: disable press-and-hold for keys in favor of key repeat $CHK"
@@ -240,10 +240,30 @@ echo -e "TextMate: turn off automatically adding closing characters $CHK"
 defaults write com.macromates.TextMate.preview disableTypingPairs -bool true
 
 
+#echo -e "
+#########################
+###     1Password     ###
+#########################
+#"
 
 echo -e "1Password: turn off autosubmit $CHK"
 defaults write 2BUA8C4S2C.com.agilebits.onepassword4-helper autosubmit -bool false
 
+
+#echo -e "
+#####################
+###     Xcode     ###
+#####################
+#"
+
+echo -e "Xcode: continue building after errors $CHK"
+defaults write com.apple.dt.Xcode IDEBuildingContinueBuildingAfterErrors -bool true
+
+echo -e "Xcode: set default color scheme to Dusk $CHK"
+defaults write com.apple.dt.Xcode XCFontAndColorCurrentTheme -string Dusk.xccolortheme
+
+echo -e "Xcode: show line numbers $CHK"
+defaults write com.apple.dt.Xcode DVTTextShowLineNumbers -bool true
 
 
 #echo -e "
