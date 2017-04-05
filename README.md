@@ -67,3 +67,7 @@ Download and install Xcode. You may want to run bootstrap again to make sure set
 Run it and give it accessibility access.
 
 Import license.
+
+## Fantastical
+
+Run it and make sure everything is set up.
