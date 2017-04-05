@@ -97,6 +97,7 @@ echo -e "
 ###########################
 "
 
+brew update
 brew bundle -v --global
 
 

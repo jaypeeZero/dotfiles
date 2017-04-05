@@ -30,7 +30,7 @@ brew 'webfs'
 
 # Fonts
 tap 'caskroom/fonts'
-#cask 'font-meslo-lg-for-powerline'
+cask 'font-meslo-for-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
