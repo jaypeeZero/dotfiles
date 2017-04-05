@@ -61,3 +61,9 @@ Re-organize sidebar---while this may be possible with `plistBuddy`, I don't want
 ## Xcode
 
 Download and install Xcode. You may want to run bootstrap again to make sure settings apply.
+
+## BetterTouchTool
+
+Run it and give it accessibility access.
+
+Import license.

@@ -231,6 +231,17 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad HIDScrollZoomM
 
 
 #echo -e "
+###############################
+###     BetterTouchTool     ###
+###############################
+#"
+
+# From https://www.reddit.com/r/BetterTouchTool/comments/3rdaal/commandline_importexport/
+echo -e "BetterTouchTool: copy settings $CHK"
+cp ~/.df/files/BetterTouchTool.export ~/Library/Application\ Support/BetterTouchTool/bttdata2
+
+
+#echo -e "
 ####################
 ###     Flux     ###
 ####################
