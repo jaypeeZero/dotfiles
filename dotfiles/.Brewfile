@@ -8,6 +8,7 @@ brew 'coreutils'
 brew 'git'
 brew 'tig'
 brew 'tmux'
+brew 'vim'
 brew 'reattach-to-user-namespace'
 
 # Ruby
