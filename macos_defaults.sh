@@ -119,7 +119,7 @@ defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 
 echo -e "Safari: show favorites bar $CHK"
 defaults write com.apple.Safari ShowFavoritesBar -bool true
-defaults write com.apple.Safari ShowFavoritesBar -bool true
+defaults write com.apple.Safari ShowFavoritesBar-v2 -bool true
 
 echo -e "Safari: show status bar $CHK"
 defaults write com.apple.Safari ShowStatusBar -bool true
@@ -150,7 +150,10 @@ echo -e "Safari: disable automatically opening \"safe\" downloads $CHK"
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
 echo -e "Safari: enable devloper menu $CHK"
-defaults write com.apple.Safari IncludeDeveloperMenu -bool true
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+
+echo -e "Safari: enable debug menu $CHK"
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
 echo -e "Safari: search as \"contains\" instead of \"starts with\" $CHK"
 defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
