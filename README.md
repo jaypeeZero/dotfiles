@@ -71,3 +71,11 @@ Import license.
 ## Fantastical
 
 Run it and make sure everything is set up.
+
+## Fluid
+
+Run it and create:
+URL: https://trello.com
+Name: Trello
+Location: Applications
+Icon: files/Trello.icns (originally from https://dribbble.com/shots/1774232-Freebie-Trello-App-Icon)
