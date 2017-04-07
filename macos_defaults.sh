@@ -294,6 +294,16 @@ defaults write com.apple.dt.Xcode DVTTextShowLineNumbers -bool true
 
 
 #echo -e "
+########################
+###     Tweetbot     ###
+########################
+#"
+
+echo -e "Tweetbot: don't show menu bar icon $CHK"
+defaults write com.tapbots.TweetbotMac showStatusItem -bool false
+
+
+#echo -e "
 #######################
 ###     MacDown     ###
 #######################
