@@ -54,6 +54,12 @@ Re-map `Caps Lock` to `Escape`. There might be ways of automating this, but they
 
 Re-organize sidebar---while this may be possible with `plistBuddy`, I don't want to go through the effort currently, and this is different for each of my computers
 
+Toolbar (Icon Only): Back/Forward; Path; (Flexible?) Space; View; Arrange; Action; Share; Edit Tags; Space; Get Infor; (Flexible?) Space; Search
+
+## Mail
+
+Toolbar (Icon Only): Get Mail; New Message; Space; Space; Delete; Reply/Reply All/Forward; Flag; Space; Archive; Move; Flexible Space; Search
+
 ## Outlook
 - Set up account
 - Preferences -> Reading -> Mark mail as read -> When viewed ... `[1]`
