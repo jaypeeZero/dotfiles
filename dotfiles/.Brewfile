@@ -52,5 +52,6 @@ brew 'mas'
 mas 'Fantastical 2', id: 975937182
 mas 'Keynote', id: 409183694
 mas 'Numbers', id: 409203825
+mas 'Soulver', id: 413965349
 mas 'Pages', id: 409201541
 mas 'Tweetbot', id: 557168941
