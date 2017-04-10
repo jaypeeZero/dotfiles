@@ -61,7 +61,6 @@ set whichwrap+=<,>,[,] " Allow arrow keys to wrap lines
 
 " Indenting
 set autoindent " Copy indent from current line for new line
-set copyindent " Enforce previous indentation on indenting
 set nosmartindent " Don't right-shift lines
 set expandtab " Insert spaces for <Tab> press; use spaces to indent
 set smarttab " <Tab> respects 'shiftwidth', 'tabstop', 'softtabstop'
