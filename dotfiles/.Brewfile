@@ -22,6 +22,7 @@ brew 'python'
 # Other programming
 brew 'carthage'
 brew 'cloc'
+brew 'shellcheck'
 
 # For hobbies
 brew 'imagemagick', args: ['with-librsvg']

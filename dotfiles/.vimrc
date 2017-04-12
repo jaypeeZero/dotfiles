@@ -23,14 +23,21 @@ set noshowmode " Airline will take care of telling us the mode
 set laststatus=2 " Always show airline
 
 " Syntax highlighting groups
-Bundle 'toyamarinyon/vim-swift'
-Bundle 'tmux-plugins/vim-tmux'
+Plugin 'toyamarinyon/vim-swift'
+Plugin 'tmux-plugins/vim-tmux'
 
 " Work better with tmux
-Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Work better with git
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
+
+" Work better with syntax checking
+Plugin 'scrooloose/syntastic'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 
 " Done with Vundle and bundles
 call vundle#end()
