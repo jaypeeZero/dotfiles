@@ -53,6 +53,10 @@ Toolbar (Icon Only): Back/Forward; Path; (Flexible?) Space; View; Arrange; Actio
 
 Toolbar (Icon Only): Get Mail; New Message; Space; Space; Delete; Reply/Reply All/Forward; Flag; Space; Archive; Move; Flexible Space; Search
 
+## Safari
+
+Plugins: 
+
 ## Outlook
 
 - Preferences -> Reading -> Mark mail as read -> When viewed ... `[1]`
