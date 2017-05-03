@@ -56,6 +56,10 @@ Toolbar (Icon Only): Get Mail; New Message; Space; Space; Delete; Reply/Reply Al
 ## Safari
 
 Plugins: 
+- KeySearch
+- uBlock
+- WhatFont
+- 1Password
 
 ## Outlook
 
