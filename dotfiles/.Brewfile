@@ -45,6 +45,8 @@ cask 'atom'
 cask 'bettertouchtool'
 cask 'dropbox'
 cask 'fluid'
+cask 'google-chrome'
+cask 'keepingyouawake'
 cask 'slack'
 cask 'textmate'
 
