@@ -117,10 +117,11 @@ Toolbar (Icon Only): Get Mail; New Message; Space; Space; Delete; Reply/Reply Al
 ## Safari
 
 Plugins: 
+- 1Password (done as part of installing 1Password)
 - KeySearch
-- uBlock
-- WhatFont
-- 1Password
+- [uBlock Origin](https://github.com/el1t/uBlock-Safari)
+- [WhatFont](http://www.chengyinliu.com/whatfont.html)
+
 
 ## Xcode
 
