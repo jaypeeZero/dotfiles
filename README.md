@@ -20,12 +20,15 @@ Re-map `Caps Lock` to `Escape`. There might be ways of automating this, but they
 
 On the Touch Bar (if it exists), replace Siri with Launchpad.
 
+## Wi-Fi
+
+It should go unstated, but make sure you're on the right Wi-Fi network. Assuming no ethernet connection, of course.
+
 ## Accounts and Updates
 
 Sign in to iCloud account and App Store, if you didn't do this on initial account setup.
 
 Then make sure system updates are up-to-date. You can do this either through the App Store or through `softwareupdate -l` and `softwareupdate --install --all --verbose`.
-
 
 # Bootstrapping
 
@@ -90,6 +93,8 @@ Download and install Office 365, logging in as appropriate. Run everything to ma
 ### OneDrive
 
 Get the right folders.
+
+Make sure OneDrive starts up on machine boot.
 
 ### Outlook
 
