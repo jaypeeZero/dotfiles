@@ -20,6 +20,8 @@ Re-map `Caps Lock` to `Escape`. There might be ways of automating this, but they
 
 On the Touch Bar (if it exists), replace Siri with Launchpad.
 
+Turn off "correct spelling automatically". Apparently the `defaults write` command doesn't fully do this.
+
 ## Wi-Fi
 
 It should go unstated, but make sure you're on the right Wi-Fi network. Assuming no ethernet connection, of course.
@@ -86,9 +88,15 @@ Change the `~/.df` repo to point to the SSH version instead of HTTPS.
 
 I keep a selection of wallpaper in Dropbox. Selectively sync that and pick a nice one.
 
+## Screensaver
+
+I really wish macOS had a system Blank screensaver.
+
 ## Microsoft Office
 
 Download and install Office 365, logging in as appropriate. Run everything to make sure it works.
+
+I prefer the "Classic" theme.
 
 ### OneDrive
 
@@ -120,6 +128,7 @@ Plugins:
 - 1Password (done as part of installing 1Password)
 - KeySearch
 - [uBlock Origin](https://github.com/el1t/uBlock-Safari)
+  - Turn off the badge saying how many things have been blocked
 - [WhatFont](http://www.chengyinliu.com/whatfont.html)
 
 
