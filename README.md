@@ -8,8 +8,24 @@ They are, as dotfiles/setup repos are apt to be, under constant construction.
 
 There are some manual steps to be done on a fresh macOS installation before bootstrapping. Most of these are things that simply cannot be scripted (as far as I can tell).
 
-- Sign in to iCloud account and App Store
-- Make sure system updates are up-to-date. You can do this either through the App Store or through `softwareupdate -l` and `softwareupdate --install --all --verbose`.
+## Logging in
+
+Set up a good password, if you didn't do this on initial account setup.
+
+Set up TouchID, if the computer supports it.
+
+## Keyboard Settings
+
+Re-map `Caps Lock` to `Escape`. There might be ways of automating this, but they're not good enough for my tastes yet. This can be done by System Preferences -> Keyboard -> Keyboard -> Modifier Keys -> Re-map `Caps Lock` to `Escape`.
+
+On the Touch Bar (if it exists), replace Siri with Launchpad.
+
+## Accounts and Updates
+
+Sign in to iCloud account and App Store, if you didn't do this on initial account setup.
+
+Then make sure system updates are up-to-date. You can do this either through the App Store or through `softwareupdate -l` and `softwareupdate --install --all --verbose`.
+
 
 # Bootstrapping
 
@@ -35,13 +51,53 @@ The following things are needed for the setup scripts to make any sort of sense.
 - Stow dotfiles
 - Other things necessary for setting up my environment
 
-# Post-Bootstrap
+# After Bootstrapping
 
 These are all steps that need to be taken manually, either because there's no good way of automating them, or I just haven't bothered to sniff out the `defaults write` command to do it.
 
-## System
+## Dropbox
 
-Re-map `Caps Lock` to `Escape`. There might be ways of automating this, but they're not good enough for my tastes yet. This can be done by System Preferences -> Keyboard -> Keyboard -> Modifier Keys -> Re-map `Caps Lock` to `Escape`
+Log in to Dropbox and selectively sync the right folders.
+
+## 1Password
+
+Log in to all the right vaults.
+
+Install the Safari extension.
+
+## BetterTouchTool
+
+Run it and give it accessibility access.
+
+Import license.
+
+Make sure the settings load correctly.
+
+## Github
+
+Login to Github. Then run `pubkey` and provide the SSH public key.
+
+Change the `~/.df` repo to point to the SSH version instead of HTTPS.
+
+## Wallpaper
+
+I keep a selection of wallpaper in Dropbox. Selectively sync that and pick a nice one.
+
+## Microsoft Office
+
+Download and install Office 365, logging in as appropriate. Run everything to make sure it works.
+
+### OneDrive
+
+Get the right folders.
+
+### Outlook
+
+Set marking mail as read after it's been up for a second: Preferences -> Reading -> Mark mail as read -> When viewed ... `[1]`.
+
+### OneNote
+
+Open all the correct notebooks.
 
 ## Finder
 
@@ -61,19 +117,9 @@ Plugins:
 - WhatFont
 - 1Password
 
-## Outlook
-
-- Preferences -> Reading -> Mark mail as read -> When viewed ... `[1]`
-
 ## Xcode
 
 Download and install Xcode; I use [this Stack Overflow question/answer](http://stackoverflow.com/a/10335943/16633) for my downloads. You may want to run bootstrap again to make sure settings apply.
-
-## BetterTouchTool
-
-Run it and give it accessibility access.
-
-Import license.
 
 ## Fantastical
 
