@@ -108,6 +108,8 @@ Make sure OneDrive starts up on machine boot.
 
 Set marking mail as read after it's been up for a second: Preferences -> Reading -> Mark mail as read -> When viewed ... `[1]`.
 
+Turn off weather: Preferences -> Calendar -> Weather -> Show current weather on calendar
+
 ### OneNote
 
 Open all the correct notebooks.
