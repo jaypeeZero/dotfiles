@@ -29,3 +29,4 @@ unset all_files
 
 # I prefer vi mode for command-line editing
 set -o vi
+export EDITOR=vim
