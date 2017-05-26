@@ -110,6 +110,8 @@ Set marking mail as read after it's been up for a second: Preferences -> Reading
 
 Turn off weather: Preferences -> Calendar -> Weather -> Show current weather on calendar
 
+Turn off reminders: Outlook -> Turn off reminders
+
 ### OneNote
 
 Open all the correct notebooks.
