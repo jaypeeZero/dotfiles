@@ -135,7 +135,7 @@ echo -e "
 ###########################
 "
 
-pip install --upgrade pip
+pip2 install --upgrade pip
 
 
 echo -e "
@@ -144,7 +144,7 @@ echo -e "
 ###########################
 "
 
-pip install --user -r ~/.Pipfile
+pip2 install --user -r ~/.Pipfile
 
 
 echo -e "
