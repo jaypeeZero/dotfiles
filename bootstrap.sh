@@ -199,13 +199,13 @@ echo -e "
 ############################
 "
 
-if [ ! -d ~/.tmux/plugins/tpm ]; then
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    ~/.tmux/plugins/tpm/bin/install_plugins
-else
-    ~/.tmux/plugins/tpm/bin/update_plugins all
-fi
-mkdir -p ~/.tmux/resurrect/
+#if [ ! -d ~/.tmux/plugins/tpm ]; then
+#    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+#    ~/.tmux/plugins/tpm/bin/install_plugins
+#else
+#    ~/.tmux/plugins/tpm/bin/update_plugins all
+#fi
+#mkdir -p ~/.tmux/resurrect/
 
 
 echo -e "
