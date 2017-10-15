@@ -135,7 +135,6 @@ Plugins:
   - Turn off the badge saying how many things have been blocked
 - [WhatFont](http://www.chengyinliu.com/whatfont.html)
 
-
 ## Xcode
 
 Download and install Xcode; I use [this Stack Overflow question/answer](http://stackoverflow.com/a/10335943/16633) for my downloads. You may want to run bootstrap again to make sure settings apply.
@@ -144,10 +143,6 @@ Download and install Xcode; I use [this Stack Overflow question/answer](http://s
 
 Run it and make sure everything is set up.
 
-## Fluid
+## Trello
 
-Run it and create:
-URL: https://trello.com
-Name: Trello
-Location: Applications
-Icon: files/Trello.icns (originally from https://dribbble.com/shots/1774232-Freebie-Trello-App-Icon)
+Run it and log in.
