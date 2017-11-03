@@ -136,6 +136,7 @@ echo -e "
 "
 
 pip2 install --upgrade pip
+#ln -s /usr/local/bin/pip2 /usr/local/bin/pip
 
 
 echo -e "
@@ -145,6 +146,7 @@ echo -e "
 "
 
 pip2 install --user -r ~/.Pipfile
+pipdate
 
 
 echo -e "
