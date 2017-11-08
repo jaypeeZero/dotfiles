@@ -41,6 +41,7 @@ cask 'font-source-serif-pro'
 # Casks
 tap 'caskroom/cask'
 cask '1password'
+cask 'aerial'
 cask 'appcleaner'
 cask 'atom'
 cask 'bettertouchtool'
