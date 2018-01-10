@@ -26,6 +26,7 @@ brew 'cloc'
 brew 'shellcheck'
 
 # For hobbies
+brew 'figlet'
 brew 'imagemagick', args: ['with-librsvg']
 brew 'multimarkdown'
 brew 'tree'
