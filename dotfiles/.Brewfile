@@ -53,6 +53,12 @@ cask 'keepingyouawake'
 cask 'slack'
 cask 'textmate'
 
+# Quicklook plugins
+cask 'provisionql'
+cask 'qlimagesize'
+cask 'qlstephen'
+cask 'quicklook-json'
+
 # App Store
 brew 'mas'
 mas 'Byword', id: 420212497
