@@ -19,6 +19,7 @@ brew 'ruby-install'
 
 # Python
 brew 'python'
+brew 'python2'
 
 # Other programming
 brew 'carthage'
@@ -65,9 +66,10 @@ mas 'Byword', id: 420212497
 mas 'Fantastical 2', id: 975937182
 mas 'Keynote', id: 409183694
 mas 'Numbers', id: 409203825
+mas "Pixelmator", id: 407963104
 mas 'Simplenote', id: 692867256
 mas 'Sip', id: 507257563
 mas 'Soulver', id: 413965349
 mas 'Pages', id: 409201541
 mas "Trello", id: 1278508951
-mas 'Tweetbot', id: 557168941
+mas "Tweetbot", id: 1384080005
