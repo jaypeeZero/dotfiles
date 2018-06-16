@@ -51,8 +51,8 @@ defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 echo -e "Dock: set dock tilesize $CHK"
 defaults write com.apple.dock tilesize -int 64
 
-echo -e "Dock: put on right side $CHK"
-defaults write com.apple.dock orientation right
+echo -e "Dock: put on bottom $CHK"
+defaults write com.apple.dock orientation bottom
 
 echo -e "Dock: automatically hide $CHK"
 defaults write com.apple.dock autohide -bool true
