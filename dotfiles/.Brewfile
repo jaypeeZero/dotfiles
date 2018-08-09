@@ -28,7 +28,6 @@ brew 'shellcheck'
 
 # For hobbies
 brew 'figlet'
-brew 'imagemagick', args: ['with-librsvg']
 brew 'multimarkdown'
 brew 'tree'
 brew 'webfs'
@@ -50,6 +49,7 @@ cask 'bettertouchtool'
 cask 'dropbox'
 cask 'fluid'
 cask 'google-chrome'
+cask 'insomnia'
 cask 'keepingyouawake'
 cask 'slack'
 cask 'textmate'
