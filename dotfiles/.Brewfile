@@ -66,7 +66,7 @@ mas 'Byword', id: 420212497
 mas 'Fantastical 2', id: 975937182
 mas 'Keynote', id: 409183694
 mas 'Numbers', id: 409203825
-mas "Pixelmator", id: 407963104
+mas "Pixelmator Pro", id: 1289583905
 mas 'Simplenote', id: 692867256
 mas 'Sip', id: 507257563
 mas 'Soulver', id: 413965349
