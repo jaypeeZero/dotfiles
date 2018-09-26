@@ -4,6 +4,10 @@
 
 DF=$HOME/.df
 
+if [ -f ~/.secrets ]; then
+  source ~/.secrets
+fi
+
 all_files=($DF/**/*.bash)
 
 # Source all of the path ones first
