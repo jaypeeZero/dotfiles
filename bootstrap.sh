@@ -77,6 +77,16 @@ stow --verbose --restow --dir ~/.df/ --target ~/ --ignore=\.DS_Store dotfiles
 
 
 echo -e "
+###########################
+###     BREW BUNDLE     ###
+###########################
+"
+
+brew update
+brew bundle -v --global
+
+
+echo -e "
 ###################################
 ###     INSTALL VIM PLUGINS     ###
 ###################################
@@ -89,16 +99,6 @@ else
 fi
 
 vim +PluginInstall +qall
-
-
-echo -e "
-###########################
-###     BREW BUNDLE     ###
-###########################
-"
-
-brew update
-brew bundle -v --global
 
 
 echo -e "
@@ -135,8 +135,8 @@ echo -e "
 ###########################
 "
 
-pip2 install --upgrade pip
-#ln -s /usr/local/bin/pip2 /usr/local/bin/pip
+pip install --quiet --upgrade pip
+pip3 install --quiet --upgrade pip
 
 
 echo -e "
@@ -145,8 +145,8 @@ echo -e "
 ###########################
 "
 
-pip2 install --user -r ~/.Pipfile
-pipdate
+pip install --quiet --user --upgrade -r ~/.Pipfile
+pip3 install --quiet --user --upgrade -r ~/.Pipfile
 
 
 echo -e "
