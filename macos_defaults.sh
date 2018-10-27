@@ -69,6 +69,9 @@ defaults write com.apple.dock magnification -int 0
 echo -e "Dock: disable indicators for open applications $CHK"
 defaults write com.apple.dock show-process-indicators -bool false
 
+echo -e "Dock: hide recents $CHK"
+detauls write com.apple.dock show-recents -bool false
+
 echo -e "Mission Control: do not group by app $CHK"
 defaults write com.apple.dock expose-group-by-app -bool false
 
