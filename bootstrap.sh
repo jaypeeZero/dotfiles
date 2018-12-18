@@ -83,7 +83,9 @@ echo -e "
 "
 
 brew update
+brew upgrade
 brew bundle -v --global
+brew cleanup
 
 
 echo -e "
@@ -125,7 +127,7 @@ echo -e "
 ############################
 "
 
-ruby-install -c --no-reinstall ruby-2.3.1
+ruby-install -c --no-reinstall ruby-2.5.3
 gem install bundler --conservative
 
 
