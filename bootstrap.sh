@@ -127,7 +127,8 @@ echo -e "
 ############################
 "
 
-ruby-install -c --no-reinstall ruby-2.5.3
+ruby-install -L
+ruby-install -c --no-reinstall ruby-2.6.0
 gem install bundler --conservative
 
 
