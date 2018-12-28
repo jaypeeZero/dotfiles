@@ -39,6 +39,9 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
+" Swift support
+Plugin 'jph00/swift-apple'
+
 " Done with Vundle and bundles
 call vundle#end()
 filetype plugin indent on
