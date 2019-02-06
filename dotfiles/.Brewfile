@@ -33,7 +33,7 @@ brew 'tree'
 brew 'webfs'
 
 # Fonts
-tap 'caskroom/fonts'
+tap 'homebrew/cask-fonts'
 cask 'font-meslo-for-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
