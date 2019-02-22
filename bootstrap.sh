@@ -219,4 +219,4 @@ echo -e "
 ##############################
 "
 
-~/.df/macos_defaults.sh
+#~/.df/macos_defaults.sh
