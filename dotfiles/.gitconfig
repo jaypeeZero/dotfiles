@@ -1,21 +1,31 @@
 [user]
-	name = Keith Bertelsen
-	email = keith@keithbertelsen.com
+	name = James Wright
+	email = jamesw@gmail.com
 [core]
 	excludesfile = ~/.gitignore
 	editor = /usr/local/bin/vim
 [color]
 	ui = true
 [alias]
+	alias = config --get-regexp ^alias\\.
 	s = status -sb
-	st = status -sb
-	sta = status -sb
-	stat = status -sb
-	statu = status -sb
 	co = checkout
 	ci = commit
-	br = branch
 	graph = log --oneline --color --graph --decorate
+	# Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
+	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+	staged = diff --staged
+	find-deleted-file = rev-list -n 1 HEAD -- *
+	history = log --follow --oneline
+	nevermind = !git reset --hard HEAD && git clean -d -f
+	unstage = reset -q HEAD --
+	discard = checkout --
+	resetmains = !git fetch origin master:master -f
+	details = show --stat
+	# windows version - lastsha = !git rev-parse HEAD | clip
+	lastsha = !git rev-parse HEAD | pbcopy
 [push]
 	default = simple
 [include]
