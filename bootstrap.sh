@@ -27,7 +27,6 @@ else
     echo -e "SSH Key already generated"
 fi
 
-
 echo -e "
 ########################
 ###     HOMEBREW     ###

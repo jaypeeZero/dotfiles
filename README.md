@@ -55,3 +55,12 @@ The following things are needed for the setup scripts to make any sort of sense.
 - Clone this repository into `~/.df`
 - Stow dotfiles
 - Other things necessary for setting up my environment
+
+## TODO 
+
+Adjust .Brewfile for my apps
+    - VS Code
+
+Set the theme for Terminal to Son Of Obsidian
+
+Look into getting macos_defaults.sh to run
