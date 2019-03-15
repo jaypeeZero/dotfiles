@@ -61,7 +61,7 @@ echo -e "
 "
 
 if [ ! -d ~/.df ]; then
-    git clone https://github.com/kdbertel/dotfiles.git ~/.df
+    git clone https://github.com/jamespwright/dotfiles.git ~/.df
 else
     echo "Dotfiles already cloned"
 fi
