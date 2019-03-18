@@ -10,9 +10,6 @@ call vundle#begin()
 " Let Vundle manage Vundle
 Bundle "gmarik/vundle"
 
-" Hybrid for syntax highlighting
-Bundle 'w0ng/vim-hybrid'
-
 " Airline instead of powerline because it's faster
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -50,7 +47,6 @@ filetype plugin indent on
 set t_Co=256
 set bg=dark
 hi Normal guibg=black guifg=white
-colorscheme hybrid
 syntax enable
 
 " Window display
