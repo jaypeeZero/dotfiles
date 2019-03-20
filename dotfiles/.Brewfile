@@ -28,7 +28,7 @@ brew 'python2'
 brew 'cloc'
 brew 'shellcheck'
 brew 'tree'
-brew 'iterm2'
+brew cask install 'iterm2'
 
 # Fonts
 tap 'homebrew/cask-fonts'
