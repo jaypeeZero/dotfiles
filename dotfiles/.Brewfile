@@ -25,15 +25,9 @@ brew 'python'
 brew 'python2'
 
 # Other programming
-# brew 'carthage'
-# brew 'cloc'
-# brew 'shellcheck'
-
-# For hobbies
-# brew 'figlet'
-# brew 'multimarkdown'
-# brew 'tree'
-# brew 'webfs'
+brew 'cloc'
+brew 'shellcheck'
+brew 'tree'
 
 # Fonts
 tap 'homebrew/cask-fonts'
@@ -43,7 +37,7 @@ cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
 
 # Casks
-tap 'caskroom/cask'
+tap 'homebrew/homebrew-cask'
 # cask '1password'
 cask 'aerial'
 cask 'appcleaner'
