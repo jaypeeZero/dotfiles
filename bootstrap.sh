@@ -153,12 +153,12 @@ pip3 install --quiet --user --upgrade -r ~/.Pipfile
 
 echo -e "
 ##############################################
-###     INSTALL IRIDIUM TERMINAL THEME     ###
+###     INSTALL Obsidian TERMINAL THEME     ###
 ##############################################
 "
 
-if $(/usr/libexec/PlistBuddy -c "print 'Window Settings':Iridium" ~/Library/Preferences/com.apple.Terminal.plist >/dev/null 2>&1); then
-    echo "Iridium already installed as Terminal theme"
+if $(/usr/libexec/PlistBuddy -c "print 'Window Settings':Obsidian" ~/Library/Preferences/com.apple.Terminal.plist >/dev/null 2>&1); then
+    echo "Obsidian already installed as Terminal theme"
 else
 	# Found at https://github.com/geerlingguy/mac-dev-playbook/issues/26
 osascript <<EOD
@@ -166,7 +166,7 @@ osascript <<EOD
 		local allOpenedWindows
 		local initialOpenedWindows
 		local windowID
-		set themeName to "Iridium" (* Set the name of the theme*)
+		set themeName to "Obsidian" (* Set the name of the theme*)
 		(* Store the IDs of all the open terminal windows. *)
 		set initialOpenedWindows to id of every window
 		(* Open the custom theme so that it gets added to the list
@@ -194,7 +194,7 @@ osascript <<EOD
 	end tell
 EOD
 
-	echo "Iridium terminal theme installed"
+	echo "Obsidian terminal theme installed"
 fi
 
 echo -e "
