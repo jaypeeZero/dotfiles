@@ -49,6 +49,7 @@ cask 'insomnia'
 cask 'keepingyouawake'
 cask 'slack'
 cask 'boostnote'
+cask 'dotnet-sdk'
 
 # Quicklook plugins
 cask 'provisionql'
