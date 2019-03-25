@@ -48,6 +48,7 @@ cask 'google-chrome'
 cask 'insomnia'
 cask 'keepingyouawake'
 cask 'slack'
+cask 'boostnote'
 
 # Quicklook plugins
 cask 'provisionql'
