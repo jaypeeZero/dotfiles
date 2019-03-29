@@ -11,14 +11,13 @@
 	s = status -sb
 	co = checkout
 	ci = commit
-	graph = log --oneline --color --graph --decorate
+	history = log --oneline --color --graph --decorate
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
 	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 	staged = diff --staged
 	find-deleted-file = rev-list -n 1 HEAD -- *
-	history = log --follow --oneline
 	nevermind = !git reset --hard HEAD && git clean -d -f
 	unstage = reset -q HEAD --
 	discard = checkout --
