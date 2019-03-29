@@ -23,7 +23,11 @@
 	discard = checkout --
 	resetmains = !git fetch origin master:master -f
 	details = show --stat
-	# windows version - lastsha = !git rev-parse HEAD | clip
+	
+	# lastsha - windows version 
+	# lastsha = !git rev-parse HEAD | clip
+
+	# lastsha - osx version
 	lastsha = !git rev-parse HEAD | pbcopy
 [push]
 	default = simple
