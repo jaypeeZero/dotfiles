@@ -19,8 +19,8 @@ defaults write com.apple.finder ShowPathbar -bool true
 echo -e "Finder: show the ~/Library folder $CHK"
 chflags nohidden ~/Library
 
-echo -e "Finder: hide hidden files $CHK"
-defaults write com.apple.finder AppleShowAllFiles -bool false
+echo -e "Finder: show hidden files $CHK"
+defaults write com.apple.finder AppleShowAllFiles -bool true
 
 echo -e "Finder: show all filename extensions $CHK"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -106,69 +106,9 @@ defaults write com.apple.screencapture disable-shadow -bool true
 echo -e "Terminal: disable line marks $CHK"
 defaults write com.apple.terminal ShowLineMarks -bool false
 
-echo -e "Terminal: use Iridium $CHK"
-defaults write com.apple.Terminal "Default Window Settings" -string "Iridium"
-defaults write com.apple.Terminal "Startup Window Settings" -string "Iridium"
-
-
-#echo -e "
-######################
-###     Safari     ###
-######################
-#"
-
-echo -e "Safari: show full website address $CHK"
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
-
-echo -e "Safari: show favorites bar $CHK"
-defaults write com.apple.Safari ShowFavoritesBar -bool true
-defaults write com.apple.Safari ShowFavoritesBar-v2 -bool true
-
-echo -e "Safari: show status bar $CHK"
-defaults write com.apple.Safari ShowStatusBar -bool true
-
-echo -e "Safari: show overlay status bar $CHK"
-defaults write com.apple.Safari ShowOverlayStatusBar -bool true
-
-echo -e "Safari: hide sidebar in new windows $CHK"
-defaults write com.apple.Safari ShowSidebarInNewWindows -bool false
-
-echo -e "Safari: hide sidebar in Top Sites $CHK"
-defaults write com.apple.Safari ShowSidebarInTopSites -bool false
-
-echo -e "Safari: blank pages on new tabs/windows $CHK"
-defaults write com.apple.Safari NewTabBehavior -int 1
-defaults write com.apple.Safari NewWindowBehavior -int 1
-
-echo -e "Safari: restore session at launch $CHK"
-defaults write com.apple.Safari AlwaysRestoreSessionAtLaunch -bool true
-
-echo -e "Safari: disable autofill $CHK"
-defaults write com.apple.Safari AutoFillCreditCardData -bool false
-defaults write com.apple.Safari AutoFillFromAddressBook -bool false
-defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
-defaults write com.apple.Safari AutoFillPasswords -bool false
-
-echo -e "Safari: disable automatically opening \"safe\" downloads $CHK"
-defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
-
-echo -e "Safari: enable devloper menu $CHK"
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-
-echo -e "Safari: enable debug menu $CHK"
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-
-echo -e "Safari: search as \"contains\" instead of \"starts with\" $CHK"
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
-
-
-#echo -e "
-#############################
-###     Remote Access     ###
-#############################
-#"
-#sudo systemsetup -f -setremotelogin on
-#sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.screensharing.plist
+echo -e "Terminal: use Obsidian $CHK"
+defaults write com.apple.Terminal "Default Window Settings" -string "Obsidian"
+defaults write com.apple.Terminal "Startup Window Settings" -string "Obsidian"
 
 
 #echo -e "
@@ -186,9 +126,6 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 echo -e "Keyboard: speed up initial key repeat $CHK"
 defaults write NSGlobalDomain InitialKeyRepeat -int 25
 
-# echo -e "Keyboard: enable full keyboard access for all controls, such as tab in modal dialogs $CHK"
-# defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-
 echo -e "Keyboard: disable autocorrect $CHK"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
@@ -200,40 +137,8 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 #############################
 #"
 
-
-# echo -e "Show IP address, hostname, OS version when clicking the clock in the login window $CHK"
-# sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
-
-# echo -e "App Store: check for software updates daily $CHK"
-# defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
-
-
-# echo -e "Enable snap-to-grid for icons on the desktop and in other icon views $CHK"
-# /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-# /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-# /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-
-
 echo -e "Devices: stop Photos from opening every time a new device is plugged in $CHK"
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
-
-
-#echo -e "
-#############################
-###     Accessibility     ###
-#############################
-#"
-
-echo -e "Accessibility: enable zoom with scroll wheel $CHK"
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-
-echo -e "Accessibility: disable antialiasing when zooming in $CHK"
-defaults write com.apple.universalaccess closeViewSmoothImages -bool false
-
-echo -e "Accessibility: use control key to zoom with scroll wheel $CHK"
-defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
-defaults write com.apple.AppleMultitouchTrackpad HIDScrollZoomModifierMask -int 262144
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad HIDScrollZoomModifierMask -int 262144
 
 
 #echo -e "
@@ -261,26 +166,6 @@ defaults write com.herf.Flux sleepLate 1
 
 
 #echo -e "
-########################
-###     TextMate     ###
-########################
-#"
-
-echo -e "TextMate: turn off automatically adding closing characters $CHK"
-defaults write com.macromates.TextMate disableTypingPairs -bool true
-
-
-#echo -e "
-#########################
-###     1Password     ###
-#########################
-#"
-
-echo -e "1Password: turn off autosubmit $CHK"
-defaults write 2BUA8C4S2C.com.agilebits.onepassword4-helper autosubmit -bool false
-
-
-#echo -e "
 #####################
 ###     Xcode     ###
 #####################
@@ -297,16 +182,6 @@ defaults write com.apple.dt.Xcode DVTTextShowLineNumbers -bool true
 
 
 #echo -e "
-########################
-###     Tweetbot     ###
-########################
-#"
-
-echo -e "Tweetbot: don't show menu bar icon $CHK"
-defaults write com.tapbots.TweetbotMac showStatusItem -bool false
-
-
-#echo -e "
 #######################
 ###     MacDown     ###
 #######################
@@ -317,19 +192,5 @@ defaults write com.uranusjr.macdown editorEnsuresNewlineAtEndOfFile -bool true
 
 echo -e "MacDown: turn on automatic updates $CHK"
 defaults write com.uranusjr.macdown SUEnableAutomaticChecks -bool true
-
-
-#echo -e "
-#####################
-###     Reset     ###
-#####################
-#"
-
-# for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-#     "Dock" "Finder" "Flux" "Google Chrome" "Mail" "Messages" \
-#     "Opera" "Photos" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
-#     "Transmission" "Tweetbot" "Twitter" "iCal"; do
-#     killall "${app}" &> /dev/null
-# done
 
 echo -e "macOS configuration complete. Restart computer to see any changes not already visible."
