@@ -28,6 +28,7 @@ brew 'python2'
 brew 'cloc'
 brew 'shellcheck'
 brew 'tree'
+brew 'kaleidoscope'
 # TODO Figure out how to get iterm2 to install
 
 # Fonts
