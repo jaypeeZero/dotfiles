@@ -20,7 +20,7 @@ echo -e "Finder: show the ~/Library folder $CHK"
 chflags nohidden ~/Library
 
 echo -e "Finder: show hidden files $CHK"
-defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool false
 
 echo -e "Finder: show all filename extensions $CHK"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
