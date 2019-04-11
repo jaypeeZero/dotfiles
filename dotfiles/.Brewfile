@@ -54,7 +54,6 @@ cask 'slack'
 cask 'boostnote'
 cask 'dotnet-sdk'
 cask 'kaleidoscope'
-cask 'parallels'
 
 # Quicklook plugins
 cask 'provisionql'
