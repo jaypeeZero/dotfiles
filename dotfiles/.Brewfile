@@ -24,6 +24,9 @@ brew 'elixir'
 brew 'python'
 brew 'python2'
 
+# Node
+brew 'node'
+
 # Other programming
 brew 'cloc'
 brew 'shellcheck'
