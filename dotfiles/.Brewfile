@@ -26,8 +26,6 @@ brew 'python2'
 
 # Node
 brew 'node'
-brew 'gcc'
-brew 'nvm'
 
 # Other programming
 brew 'cloc'
