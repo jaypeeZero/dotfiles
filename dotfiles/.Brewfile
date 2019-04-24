@@ -31,7 +31,7 @@ brew 'node'
 brew 'cloc'
 brew 'shellcheck'
 brew 'tree'
-# TODO Figure out how to get iterm2 to install
+brew 'zsh'
 
 # Fonts
 tap 'homebrew/cask-fonts'
@@ -54,6 +54,7 @@ cask 'slack'
 cask 'boostnote'
 cask 'dotnet-sdk'
 cask 'kaleidoscope'
+cask 'iterm2'
 
 # Quicklook plugins
 cask 'provisionql'
