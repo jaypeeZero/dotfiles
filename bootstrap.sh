@@ -155,7 +155,9 @@ echo -e "
 ###     SETUP Oh-my-zsh                 #######
 ###############################################
 "
-bash <(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)
+# BASED OFF OF 
+# bash <(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)
+~/.df/oh-my-zsh-install.sh
 
 echo -e "
 ##############################################
