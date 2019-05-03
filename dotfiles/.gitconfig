@@ -4,6 +4,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = /usr/local/bin/vim
+    trustctime = false
 [color]
 	ui = true
 [alias]
@@ -55,3 +56,4 @@
 	required = true
 [pager]
 	branch = false
+	alias = false

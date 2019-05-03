@@ -205,9 +205,6 @@ EOD
 	echo "Obsidian terminal theme installed"
 fi
 
-# TODO : Figure out how to get Obsidian theme for iTerm2 automatically set up
-# TODO : Figure out how to get iTerm2 settings auto set up
-
 echo -e "
 ############################
 ###     TMUX PLUGINS     ###
