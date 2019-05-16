@@ -56,6 +56,7 @@ cask 'boostnote'
 cask 'dotnet-sdk'
 cask 'kaleidoscope'
 cask 'iterm2'
+cask 'vscodium'
 
 # Quicklook plugins
 cask 'provisionql'

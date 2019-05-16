@@ -126,9 +126,9 @@ echo -e "
 ############################
 "
 
-ruby-install -L
-ruby-install -c --no-reinstall ruby-2.6.0
-gem install bundler --conservative
+# ruby-install -L
+# ruby-install -c --no-reinstall ruby-2.6.0
+# gem install bundler --conservative
 
 
 echo -e "
