@@ -97,4 +97,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias dkillall='docker stop $(docker ps -a -q)'
-alias csv='cd ~/documents/code/Caesar-Vision-Next-Gen'
+alias csv='cd ~/code/Caesar-Vision-Next-Gen'
