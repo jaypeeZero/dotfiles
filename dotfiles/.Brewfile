@@ -11,6 +11,8 @@ brew 'tig'
 brew 'tmux'
 brew 'vim'
 brew 'reattach-to-user-namespace'
+brew 'brotli'
+brew 'git-ftp'
 
 # Ruby
 brew 'ruby'
