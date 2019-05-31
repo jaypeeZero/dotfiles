@@ -98,3 +98,11 @@ source $ZSH/oh-my-zsh.sh
 
 alias dkillall='docker stop $(docker ps -a -q)'
 alias csv='cd ~/code/Caesar-Vision-Next-Gen'
+whatport() {
+    if [ -n "$1" ]
+    then
+        lsof -nP -i4TCP:"$1"
+    else
+        echo "Provide a port"
+    fi
+}
