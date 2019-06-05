@@ -30,6 +30,7 @@
 
 	# lastsha - osx version
 	lastsha = !git rev-parse HEAD | pbcopy
+	latasha = !git rev-parse HEAD | pbcopy
 [diff]
     tool = Kaleidoscope
 [difftool]
