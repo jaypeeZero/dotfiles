@@ -24,26 +24,20 @@
 	discard = checkout --
 	resetmains = !git fetch origin master:master -f
 	details = show --stat
-	
-	# lastsha - windows version 
-	# lastsha = !git rev-parse HEAD | clip
-
-	# lastsha - osx version
 	lastsha = !git rev-parse HEAD | pbcopy
-	latasha = !git rev-parse HEAD | pbcopy
+    rootdir = !git rev-parse --show-toplevel
+    # THIS COMMAND WILL FUCK UP YOUR DAY IF YOU HAVE ANY CURRENT CHANGES
+    split = !git rebase -i | git reset HEAD~
+
 [diff]
-    tool = Kaleidoscope
+    tool = vimdiff
 [difftool]
 	prompt = false
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [merge]
-    tool = Kaleidoscope
+    tool = vimdiff
+    conflictstyle = diff3
 [mergetool]
 	prompt = false
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
 [push]
 	default = simple
 [include]
