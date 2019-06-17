@@ -27,8 +27,7 @@
 	lastsha = !git rev-parse HEAD | pbcopy
     rootdir = !git rev-parse --show-toplevel
     # THIS COMMAND WILL FUCK UP YOUR DAY IF YOU HAVE ANY CURRENT CHANGES
-    split = !git rebase -i | git reset HEAD~
-
+    split = !git reset HEAD~ | git rebase -i 
 [diff]
     tool = vimdiff
 [difftool]

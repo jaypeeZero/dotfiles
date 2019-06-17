@@ -96,7 +96,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias dkillall='docker stop $(docker ps -a -q)'
+alias dkillall='docker-compose -f docker-compose-integration.yml down'
 alias csv='cd ~/code/Caesar-Vision-Next-Gen'
 whatport() {
     if [ -n "$1" ]
