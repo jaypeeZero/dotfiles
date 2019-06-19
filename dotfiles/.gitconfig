@@ -28,6 +28,7 @@
     rootdir = !git rev-parse --show-toplevel
     # THIS COMMAND WILL FUCK UP YOUR DAY IF YOU HAVE ANY CURRENT CHANGES
     split = !git reset HEAD~ | git rebase -i 
+    breakout = !"d() { git reset $1~; }; d"
 [diff]
     tool = vimdiff
 [difftool]
