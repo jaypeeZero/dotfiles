@@ -49,6 +49,12 @@ set bg=dark
 hi Normal guibg=black guifg=white
 syntax enable
 
+" make diff not so colorful
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+
 " Window display
 set showcmd " Display incomplete commands
 set splitright " Split new vertical windows right of current window
