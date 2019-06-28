@@ -13,6 +13,7 @@ Bundle "gmarik/vundle"
 " Airline instead of powerline because it's faster
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'elixir-editors/vim-elixir'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
 set timeoutlen=50 " Makes the switch from insert to normal look faster
