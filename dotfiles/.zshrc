@@ -98,6 +98,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias dkillall='docker-compose -f docker-compose-integration.yml down'
 alias csv='cd ~/code/Caesar-Vision-Next-Gen'
+alias docker-burn="docker stop \$(docker ps -aq) && docker rm \$(docker ps -aq) && docker volume prune -f"
 whatport() {
     if [ -n "$1" ]
     then
