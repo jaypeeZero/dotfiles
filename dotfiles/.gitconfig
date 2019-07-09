@@ -5,7 +5,6 @@
 	excludesfile = ~/.gitignore
 	editor = /usr/local/bin/vim
     trustctime = false
-    pager = cat
 [color]
 	ui = true
 [alias]
