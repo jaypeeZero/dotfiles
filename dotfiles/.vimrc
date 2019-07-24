@@ -40,6 +40,13 @@ let g:syntastic_check_on_wq = 0
 " Swift support
 Plugin 'jph00/swift-apple'
 
+" Tree explorer
+Plugin 'scrooloose/nerdtree'
+" Use NERDTree automatically if nothing provided
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let NERDTreeShowHidden=1
+
 " Done with Vundle and bundles
 call vundle#end()
 filetype plugin indent on
