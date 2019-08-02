@@ -42,6 +42,7 @@ cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
 cask 'font-fira-code'
+cask 'font-hack-nerd-font'
 
 # Casks
 tap 'homebrew/homebrew-cask'

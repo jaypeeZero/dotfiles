@@ -161,6 +161,14 @@ echo -e "
 
 echo -e "
 ############################
+###     POWERLEVEL10K    ###
+############################
+"
+git clone https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
+
+
+echo -e "
+############################
 ###     TMUX PLUGINS     ###
 ############################
 "
