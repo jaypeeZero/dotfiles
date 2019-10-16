@@ -34,6 +34,7 @@ brew 'cloc'
 brew 'shellcheck'
 brew 'tree'
 brew 'zsh'
+brew 'jq'
 
 # Fonts
 tap 'homebrew/cask-fonts'
