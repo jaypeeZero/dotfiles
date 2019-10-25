@@ -31,6 +31,7 @@
     breakout = !"d() { git reset $1~; }; d"
 	rmbranches = "!f() { git branch | grep $1 | xargs git branch -D; }; f"
     prune = !"b() { git branch --merged master | grep -v \"\\* master\" | xargs -n 1 git branch -d; }; b"
+    vim = !vim `git status --porcelain | sed -ne 's/^ M //p'`
 [diff]
     tool = vimdiff
 [difftool]
