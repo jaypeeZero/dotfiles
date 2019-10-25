@@ -13,15 +13,16 @@ Bundle "gmarik/vundle"
 " Airline instead of powerline because it's faster
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'elixir-editors/vim-elixir'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
 set timeoutlen=50 " Makes the switch from insert to normal look faster
 set noshowmode " Airline will take care of telling us the mode
 set laststatus=2 " Always show airline
 
+" Language specific support
+Plugin 'elixir-editors/vim-elixir'
+
 " Syntax highlighting groups
-Plugin 'toyamarinyon/vim-swift'
 Plugin 'tmux-plugins/vim-tmux'
 
 " Work better with tmux
@@ -30,15 +31,15 @@ Plugin 'christoomey/vim-tmux-navigator'
 " Work better with git
 Plugin 'tpope/vim-fugitive'
 
+" git gutter
+Plugin 'airblade/vim-gitgutter'
+
 " Work better with syntax checking
 Plugin 'scrooloose/syntastic'
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-
-" Swift support
-Plugin 'jph00/swift-apple'
 
 " Tree explorer
 Plugin 'scrooloose/nerdtree'
