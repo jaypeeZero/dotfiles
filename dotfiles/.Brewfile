@@ -13,6 +13,8 @@ brew 'vim'
 brew 'reattach-to-user-namespace'
 brew 'brotli'
 brew 'git-ftp'
+brew 'tldr'
+brew 'bat'
 
 # Ruby
 brew 'ruby'

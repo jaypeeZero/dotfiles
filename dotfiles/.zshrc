@@ -13,7 +13,8 @@ export ZSH="/Users/wrigjame/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-source ~/.powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.powerlevel10k/powerlevel10k.zsh-theme
+ZSH_THEME=powerlevel10k/powerlevel10k
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -96,7 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
+alias cat="bat"
 alias csv='cd ~/code/Caesar-Vision-Next-Gen'
 alias docker-burn="docker stop \$(docker ps -aq) && docker rm \$(docker ps -aq) && docker volume prune -f"
 whatport() {
