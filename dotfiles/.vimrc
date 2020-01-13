@@ -18,6 +18,19 @@ let g:airline_theme='powerlineish'
 set timeoutlen=50 " Makes the switch from insert to normal look faster
 set noshowmode " Airline will take care of telling us the mode
 set laststatus=2 " Always show airline
+let g:lightline = {
+            \ 'colorscheme': 'wombat',
+            \ 'active': {
+            \   'right': [ ['lineinfo'],
+            \               ['percent'],
+            \               [ 'filetype', 'absolutepath'] ],
+            \   'left': [ ['mode', 'paste'],
+            \               ['gitbranch'] ]
+            \ },
+            \ 'component_function': {
+            \   'gitbranch': 'fugitive#head'
+            \ }
+            \}
 
 " Language specific support
 Plugin 'elixir-editors/vim-elixir'
