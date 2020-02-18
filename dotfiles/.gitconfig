@@ -32,6 +32,8 @@
 	rmbranches = "!f() { git branch | grep $1 | xargs git branch -D; }; f"
     prune = !"b() { git branch --merged master | grep -v \"\\* master\" | xargs -n 1 git branch -d; }; b"
     vim = !vim `git status --porcelain | sed -ne 's/^ M //p'`
+    ugh = !git add . && git commit --amend --no-edit && git push --force-with-lease
+
 [diff]
     tool = vimdiff
 [difftool]
