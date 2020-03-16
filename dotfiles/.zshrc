@@ -117,6 +117,9 @@ run() {
         $@
     done
 }
+
+rpl() { ack -l "$1" --print0 | xargs -0 -n 1 sed -i '' -e "s/$1/$2/" }
+
 export NVM_DIR="/usr/local/opt/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
