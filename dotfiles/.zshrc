@@ -4,9 +4,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/wrigjame/.oh-my-zsh"
 
-# ZSH_TMUX_AUTOSTART=true
-# ZSH_TMUX_AUTOSTART_ONCE=true
-# ZSH_TMUX_AUTOCONNECT=false
+ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART_ONCE=true
+ZSH_TMUX_AUTOCONNECT=false
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -68,7 +68,7 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,21 +103,21 @@ alias docker-burn="docker stop \$(docker ps -aq) && docker rm \$(docker ps -aq) 
 alias fnd='find . -name'
 alias uuid="uuidgen"
 whatport() {
-    if [ -n "$1" ]
-    then
-        lsof -nP -i4TCP:"$1"
-    else
-        echo "Provide a port"
-    fi
+	if [ -n "$1" ]
+	then
+		lsof -nP -i4TCP:"$1"
+	else
+		echo "Provide a port"
+	fi
 }
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 run() {
-    number=$1
-    shift
-    for i in `seq $number`; do
-        $@
-    done
+	number=$1
+	shift
+	for i in `seq $number`; do
+		$@
+	done
 }
 
 rpl() { ack -l "$1" --print0 | xargs -0 -n 1 sed -i '' -e "s/$1/$2/" }
