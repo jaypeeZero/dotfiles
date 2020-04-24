@@ -100,7 +100,7 @@ source $ZSH/oh-my-zsh.sh
 alias cat="bat"
 alias csv='cd ~/code/Caesar-Vision-Next-Gen'
 alias docker-burn="docker stop \$(docker ps -aq) && docker rm \$(docker ps -aq) && docker volume prune -f"
-alias fnd='find . -name'
+alias fnd='find . -iname'
 alias uuid="uuidgen"
 whatport() {
 	if [ -n "$1" ]
