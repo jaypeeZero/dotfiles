@@ -5,6 +5,9 @@
 	excludesfile = ~/.gitignore
 	editor = /usr/local/bin/vim
     trustctime = false
+    pager = delta --highlight-removed --keep-plus-minus-markers --hunk-style=plain --plus-color="#21551c"
+[interactive]
+    diffFilter = delta --color-only
 [color]
 	ui = true
 [alias]
