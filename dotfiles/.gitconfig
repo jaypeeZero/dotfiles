@@ -12,14 +12,11 @@
 	ui = true
 [alias]
 	alias = config --get-regexp ^alias\\.
+    ecfg = config -e --global
 	s = status -sb
 	co = checkout
 	ci = commit
     hist = log --graph --pretty='format:%C(red)%d%C(reset)%C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
-	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
-	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
-	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 	staged = diff --staged
 	find-deleted-file = rev-list -n 1 HEAD -- *
 	nevermind = !git reset --hard HEAD && git clean -d -f
@@ -27,6 +24,10 @@
 	discard = checkout --
 	resetmains = !git fetch origin master:master -f
 	details = show --stat
+    ugh = !git add . && git commit --amend --no-edit && git push --force-with-lease
+	# lastsha - windows version 
+	# lastsha = !git rev-parse HEAD | clip
+	# lastsha - osx version
 	lastsha = !git rev-parse HEAD | pbcopy
     rootdir = !git rev-parse --show-toplevel
     # THIS COMMAND WILL FUCK UP YOUR DAY IF YOU HAVE ANY CURRENT CHANGES
@@ -35,8 +36,8 @@
 	rmbranches = "!f() { git branch | grep $1 | xargs git branch -D; }; f"
     prune = "!git branch --merged master | grep -v '*' | xargs -n 1 git branch -d"
     vim = !vim `git status --porcelain | sed -ne 's/^ M //p'`
-    ugh = !git add . && git commit --amend --no-edit && git push --force-with-lease
-    summary = !"git log --reverse --branches --since=$(if [[ "Mon" == "$(date +%a)" ]]; then echo "friday"; else echo "yesterday"; fi) --author=$(git config --get user.email) --format=format:'%C(cyan) %ad %C(yellow)%h %Creset %s %Cgreen%d' --date=local"
+    authors = "!git log --pretty=format:%aN | sort | uniq -c | sort -rn"
+    fnd = grep --name-only --full-name
 [diff]
     tool = vimdiff
 [difftool]
