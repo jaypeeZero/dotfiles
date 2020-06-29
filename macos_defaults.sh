@@ -72,6 +72,9 @@ defaults write com.apple.dock show-process-indicators -bool false
 echo -e "Dock: hide recents $CHK"
 defaults write com.apple.dock show-recents -bool false
 
+echo -e "Dock: don't bounce icons"
+defaults write com.apple.dock no-bouncing -bool FALSE;
+
 echo -e "Mission Control: do not group by app $CHK"
 defaults write com.apple.dock expose-group-by-app -bool false
 
@@ -84,8 +87,6 @@ defaults write com.apple.dock wvous-br-modifier -int 0
 
 echo -e "Screensaver: Set timeout value to five minutes $CHK"
 defaults -currentHost write com.apple.screensaver idleTime 300
-
-
 
 #echo -e "
 ###########################
