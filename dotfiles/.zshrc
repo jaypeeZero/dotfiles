@@ -120,6 +120,11 @@ run() {
 	done
 }
 
+# vscode tmux session
+codemux () {
+    tmux a -t VSCode || tmux new -s VSCode
+}
+
 rpl() { ack -l "$1" --print0 | xargs -0 -n 1 sed -i '' -e "s/$1/$2/" }
 
 export NVM_DIR="/usr/local/opt/nvm"
