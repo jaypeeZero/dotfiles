@@ -34,6 +34,7 @@
     split = !git reset HEAD~ | git rebase -i 
     breakout = !"d() { git reset $1~; }; d"
 	rmbranches = "!f() { git branch | grep $1 | xargs git branch -D; }; f"
+    delete-remote = "!git push origin --delete "
     prune = "!git branch --merged master | grep -v '*' | xargs -n 1 git branch -d"
     vim = !vim `git status --porcelain | sed -ne 's/^ M //p'`
     authors = "!git log --pretty=format:%aN | sort | uniq -c | sort -rn"
