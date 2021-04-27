@@ -3,9 +3,9 @@ export HUSKY_SKIP_HOOKS=1
 
 # Ensure Confluent Cloud tools are in your PATH
 export PATH=$HOME/.ccloud/bin:$PATH
-
-# Add ngrok to PATH
+export PATH=$HOME/.mongo/bin:$PATH
 export PATH=$HOME/tools:$PATH
+export GOOGLE_APPLICATION_CREDENTIALS=~/.ssh/lce-dev-sandbox-firestore-auth/cloud-storage-key.json
 
 # Custom kafka aliases
 export COMMAND_KTOPICS='kafka-topics  --bootstrap-server pkc-l9zdv.us-central1.gcp.confluent.cloud:9092 --command-config ~/.ccloud/ccloud-cli-config.properties --list'
@@ -45,14 +45,18 @@ ssh_vterminal() {
 disable-parallel() {
     find . -name Dockerfile -exec sed -i '' -e "s/dotnet restore/dotnet restore --disable-parallel/g" {} \;
 }
-enable-all() {
-    find . -name Dockerfile -exec git discard {} \;
-}
 disable-tests() {
     find . -iname dockerfile -exec sed -i '' -e "s/RUN dotnet test//g" {} \;
 }
+disable-all() {
+    disable-parallel
+    disable-tests
+}
+enable-all() {
+    find . -name Dockerfile -exec git discard {} \;
+}
 get-branch-name() {
-    git symbolic-ref --short HEAD
+    git symbolic-ref --short HEAD | sed -e 's/servicesOnly\///g'
 }
 get-kubectl-namespace() {
     branch=$(get-branch-name)
@@ -62,3 +66,9 @@ get-pods() {
     ns=$(get-kubectl-namespace)
     kubectl -n $ns get pods
 }
+watch-pods() {
+    ns=$(get-kubectl-namespace)
+    watch kubectl -n $ns get pods
+}
+alias services-start='./scripts/docker.up --services --cloud-only-services --namespace store --dev-uis'
+alias build-models='./scripts/build.lib; dotnet restore;'
