@@ -1,6 +1,3 @@
-[user]
-	name = James Wright
-	email = jamesw@gmail.com
 [core]
 	excludesfile = ~/.gitignore
 	editor = /usr/local/bin/vim
