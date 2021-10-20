@@ -63,3 +63,5 @@
 [pager]
 	branch = false
 	alias = false
+[rerere]
+	enabled = true
