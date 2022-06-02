@@ -120,6 +120,11 @@ run() {
 	done
 }
 
+gdiff() {
+    preview="git diff $@ --color=always -- {-1}"
+    git diff $@ --name-only | fzf -m --ansi --preview $preview
+}
+
 # vscode tmux session
 codemux () {
     tmux a -t VSCode || tmux new -s VSCode
