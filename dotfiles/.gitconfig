@@ -73,6 +73,7 @@
 	prompt = false
 [push]
 	default = simple
+    autoSetupRemote = true
 [include]
 	path = .local.gitconfig
 [credential]
