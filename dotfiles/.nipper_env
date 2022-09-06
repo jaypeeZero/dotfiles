@@ -1,0 +1,2 @@
+alias nip="cd ~/code/nipper/mercury-web"
+# export GOOGLE_APPLICATION_CREDENTIALS=~/.ssh/nipper-dev-gcp-auth/pub-sub-admin-key.json
