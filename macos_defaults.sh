@@ -6,6 +6,18 @@ echo -e "Configuring macOS..."
 
 #echo -e "
 ######################
+###     Hardware   ###
+######################
+#"
+
+echo -e "Hardware: Enable AptX Bluetooth codec $CHK"
+sudo defaults write bluetoothaudiod "Enable AptX codec" -bool true
+
+echo -e "Hardware: Disable AAC Bluetooth codec $CHK"
+sudo defaults write bluetoothaudiod "Enable AAC codec" -bool false
+
+#echo -e "
+######################
 ###     Finder     ###
 ######################
 #"

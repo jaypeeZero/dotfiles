@@ -22,6 +22,7 @@ CASE_SENSITIVE="false"
 plugins=(git kubectl tmux zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
+source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # ALIASES
 alias cat="bat"
