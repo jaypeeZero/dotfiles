@@ -1,9 +1,11 @@
 [core]
 	excludesfile = ~/.gitignore
-	editor = /usr/local/bin/vim
+	editor = vim
     trustctime = false
-[interactive]
-    diffFilter = delta --color-only
+	pager = diff-so-fancy | less --tabs=4 -RFX
+
+# [interactive]
+# 	diffFilter = diff-so-fancy --patch
 
 [diff]
     colorMoved = default
@@ -12,7 +14,7 @@
     side-by-side = true
     features = line-numbers decorations
     whitespace-error-style = 22 reverse
-    hunk-header-style = omit
+    #hunk-header-style = omit
     syntax-theme = base16
 
 [delta "line-numbers"]
@@ -30,8 +32,6 @@
     file-style = bold yellow ul
     file-decoration-style = none
     hunk-header-decoration-style = yellow box
-[color]
-	ui = true
 [alias]
 	alias = config --get-regexp ^alias\\.
     ecfg = config -e --global
@@ -44,7 +44,7 @@
 	nevermind = !git reset --hard HEAD && git clean -d -f
 	unstage = reset -q HEAD --
 	discard = checkout --
-	resetmains = !git fetch origin master:master -f
+	resetmains = !git fetch origin master:master -f | git fetch origin main:main -f
 	details = show --stat
     ugh = !git add . && git commit --amend --no-edit && git push --force-with-lease
 	# lastsha - windows version 
@@ -88,3 +88,18 @@
 	alias = false
 [rerere]
 	enabled = true
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse

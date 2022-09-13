@@ -38,6 +38,7 @@ brew 'shellcheck'
 brew 'tree'
 brew 'zsh'
 brew 'jq'
+brew 'diff-so-fancy'
 
 # Fonts
 tap 'homebrew/cask-fonts'
