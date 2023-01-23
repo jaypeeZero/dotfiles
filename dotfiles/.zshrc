@@ -29,6 +29,7 @@ alias cat="bat"
 alias csv='cd ~/code/Caesar-Vision-Next-Gen'
 alias docker-burn="docker stop \$(docker ps -aq) && docker rm \$(docker ps -aq) && docker volume prune -f"
 alias fnd="fzf --preview 'bat {-1} --color=always' -q"
+alias fndif="rg . | fzf --print0 -e --preview 'bat {-1} --color=always' -q"
 alias uuid="uuidgen"
 
 # CUSTOM FUNCTIONS
