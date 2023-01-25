@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,9 +15,13 @@ export PATH="$PATH:/Users/wrigjame/tools/git-tidy"
 export PATH="$PATH:/usr/local/sbin"
 export PATH="$PATH:/Users/wrigjame/bin"
 
+# Things to define before oh-my-zsh
+export FZF_BASE=/opt/homebrew/bin/fzf
+export FZF_DEFAULT_OPTS="--preview 'bat {-1} --color=always'"
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/wrigjame/.oh-my-zsh"
-ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_AUTOSTART_ONCE=true
 ZSH_TMUX_AUTOCONNECT=true
 ZSH_THEME=powerlevel10k/powerlevel10k
@@ -19,13 +30,14 @@ ZSH_THEME=powerlevel10k/powerlevel10k
 COMPLETION_WAITING_DOTS="true"
 CASE_SENSITIVE="false"
 
-plugins=(git kubectl tmux zsh-syntax-highlighting)
+plugins=(git kubectl tmux fzf)
 
 source $ZSH/oh-my-zsh.sh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # ALIASES
 alias cat="bat"
+alias vim="nvim"
 alias csv='cd ~/code/Caesar-Vision-Next-Gen'
 alias docker-burn="docker stop \$(docker ps -aq) && docker rm \$(docker ps -aq) && docker volume prune -f"
 alias fnd="fzf --preview 'bat {-1} --color=always' -q"
@@ -51,7 +63,7 @@ run() {
     done
 }
 
-gdiff() {
+fdif() {
     preview="git diff $@ --color=always -- {-1}"
     git diff $@ --name-only | fzf -m --ansi --preview $preview
 }
@@ -92,10 +104,13 @@ source ~/.wingstop_env
 . /usr/local/opt/asdf/asdf.sh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/wrigjame/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/wrigjame/google-cloud-sdk/path.zsh.inc'; fi
+#if [ -f '/Users/wrigjame/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/wrigjame/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/wrigjame/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/wrigjame/google-cloud-sdk/completion.zsh.inc'; fi
+#if [ -f '/Users/wrigjame/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/wrigjame/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Navigate to the current project directory
 wing
+
+# To customize prompt, run `p10k configure` or edit ~/.df/dotfiles/.p10k.zsh.
+[[ ! -f ~/.df/dotfiles/.p10k.zsh ]] || source ~/.df/dotfiles/.p10k.zsh
