@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Source shared shell config from bash_includes
+# Source all bash_includes files (works in both bash and zsh)
 for file in $HOME/.df/bash_includes/*.bash; do
   source "$file"
 done
@@ -40,7 +40,7 @@ plugins=(git kubectl tmux fzf)
 source $ZSH/oh-my-zsh.sh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-# ZSH-SPECIFIC ALIASES (shared aliases are in bash_includes/shared.bash)
+# ZSH-SPECIFIC ALIASES (cross-shell aliases are in bash_includes/aliases.bash)
 alias csv='cd ~/code/Caesar-Vision-Next-Gen'
 
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
