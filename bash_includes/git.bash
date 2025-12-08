@@ -3,3 +3,5 @@
 alias gs='git status -sb'
 alias gd='git diff --no-ext-diff'
 alias gadd='git add -A && git status -sb'
+alias gpr='git pull --rebase'
+alias gfp='git fetch --prune'

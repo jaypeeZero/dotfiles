@@ -3,4 +3,4 @@ vim.symlink/backup
 vim.symlink/.netrwhist
 **/*.pem
 
-dotfiles/.config/gtk-2.0/
+dotfiles/.config/*
