@@ -103,3 +103,6 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[user]
+	name = James W
+	email = jamesw@gmail.com
