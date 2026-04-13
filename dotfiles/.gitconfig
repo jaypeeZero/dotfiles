@@ -91,17 +91,17 @@
 [color]
 	ui = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+	oldNormal = "#cd5c5c bold"
+	oldHighlight = "#cd5c5c bold 52"
+	newNormal = "#5c8a5c bold"
+	newHighlight = "#5c8a5c bold 22"
 [color "diff"]
 	meta = 11
 	frag = magenta bold
 	func = 146 bold
 	commit = yellow bold
-	old = red bold
-	new = green bold
+	old = "#cd5c5c bold"
+	new = "#5c8a5c bold"
 	whitespace = red reverse
 [user]
 	name = James W

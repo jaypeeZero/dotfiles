@@ -35,6 +35,9 @@ alias fndif="rg . | fzf --print0 -e --preview 'bat {-1} --color=always' -q"
 # Utilities
 alias uuid="uuidgen"
 
+# git
+alias lzg="lazygit"
+
 # FUNCTIONS
 
 # Check what's running on a port
