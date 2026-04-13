@@ -4,3 +4,4 @@ vim.symlink/.netrwhist
 **/*.pem
 
 dotfiles/.config/*
+*env.bash
