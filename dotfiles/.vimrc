@@ -3,66 +3,6 @@ set nocompatible " Never allow compatibility mode with vi
 " Vundle and plugins
 filetype off " Required for Vundle
 
-" Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Let Vundle manage Vundle
-Bundle "gmarik/vundle"
-
-" Airline instead of powerline because it's faster
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
-set timeoutlen=50 " Makes the switch from insert to normal look faster
-set noshowmode " Airline will take care of telling us the mode
-set laststatus=2 " Always show airline
-let g:lightline = {
-            \ 'colorscheme': 'wombat',
-            \ 'active': {
-            \   'right': [ ['lineinfo'],
-            \               ['percent'],
-            \               [ 'filetype', 'absolutepath'] ],
-            \   'left': [ ['mode', 'paste'],
-            \               ['gitbranch'] ]
-            \ },
-            \ 'component_function': {
-            \   'gitbranch': 'fugitive#head'
-            \ }
-            \}
-
-" Language specific support
-Plugin 'elixir-editors/vim-elixir'
-
-" Syntax highlighting groups
-Plugin 'tmux-plugins/vim-tmux'
-
-" Work better with tmux
-Plugin 'christoomey/vim-tmux-navigator'
-
-" Work better with git
-Plugin 'tpope/vim-fugitive'
-
-" git gutter
-Plugin 'airblade/vim-gitgutter'
-
-" Work better with syntax checking
-Plugin 'scrooloose/syntastic'
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-" Tree explorer
-Plugin 'scrooloose/nerdtree'
-" Use NERDTree automatically if nothing provided
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-let NERDTreeShowHidden=1
-
-" Done with Vundle and bundles
-call vundle#end()
 filetype plugin indent on
 
 " Set up colors
