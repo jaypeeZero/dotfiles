@@ -104,6 +104,22 @@ vim +PluginInstall +qall
 
 
 echo -e "
+###############################
+###     LAZYVIM (NVIM)      ###
+###############################
+"
+
+# If a tracked nvim config was stowed, leave it alone. Otherwise install the
+# LazyVim starter as a sensible default (https://www.lazyvim.org/installation).
+if [ -e "$HOME/.config/nvim" ]; then
+    echo "nvim config already present at ~/.config/nvim, skipping LazyVim install"
+else
+    git clone https://github.com/LazyVim/starter ~/.config/nvim
+    rm -rf ~/.config/nvim/.git
+fi
+
+
+echo -e "
 ######################################
 ###     SET BREW BASH AS SHELL     ###
 ######################################
