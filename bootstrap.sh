@@ -105,6 +105,34 @@ vim +PluginInstall +qall
 
 echo -e "
 ###############################
+###     DRAFTING* MONO      ###
+###############################
+"
+
+# https://github.com/indestructible-type/Drafting — no brew package, so
+# clone the repo and copy the .otf files into the platform's font dir.
+case "$(uname -s)" in
+    Darwin) FONT_DIR="$HOME/Library/Fonts" ;;
+    Linux)  FONT_DIR="$HOME/.local/share/fonts" ;;
+    *)      FONT_DIR="" ;;
+esac
+
+if [ -n "$FONT_DIR" ] && ! ls "$FONT_DIR"/Drafting*.otf >/dev/null 2>&1; then
+    mkdir -p "$FONT_DIR"
+    TMP_DRAFTING=$(mktemp -d)
+    git clone --depth 1 https://github.com/indestructible-type/Drafting.git "$TMP_DRAFTING"
+    find "$TMP_DRAFTING" -type f \( -name '*.otf' -o -name '*.ttf' \) -exec cp {} "$FONT_DIR"/ \;
+    rm -rf "$TMP_DRAFTING"
+    if [ "$(uname -s)" = "Linux" ] && command -v fc-cache >/dev/null 2>&1; then
+        fc-cache -f "$FONT_DIR"
+    fi
+else
+    echo "Drafting* Mono already installed (or unsupported platform)"
+fi
+
+
+echo -e "
+###############################
 ###     LAZYVIM (NVIM)      ###
 ###############################
 "
