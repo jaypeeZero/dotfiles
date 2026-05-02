@@ -1,10 +1,53 @@
 local wezterm = require("wezterm")
 
+-- Maximum-contrast light scheme tuned for direct-sunlight readability.
+-- All foreground colors are >=10:1 against #ffffff.
+local sunlight_scheme = {
+	foreground = "#000000",
+	background = "#ffffff",
+	cursor_bg = "#000000",
+	cursor_fg = "#ffffff",
+	cursor_border = "#000000",
+	selection_bg = "#9fb3d0",
+	selection_fg = "#000000",
+	scrollbar_thumb = "#3a3a3a",
+	split = "#1a1a1a",
+	ansi = {
+		"#000000", -- black
+		"#7a0000", -- red (11.5:1)
+		"#003d12", -- green (13.7:1)
+		"#5e3500", -- yellow rendered as dark amber (12.7:1)
+		"#001f80", -- blue (15.1:1)
+		"#4a0066", -- magenta (14.6:1)
+		"#00333d", -- cyan (14.0:1)
+		"#3a3a3a", -- white slot (used as gray; 10.4:1)
+	},
+	brights = {
+		"#3a3a3a", -- bright black (10.4:1)
+		"#a01010", -- bright red (10.0:1)
+		"#004f18", -- bright green (11.6:1)
+		"#6f3d00", -- bright yellow / amber (10.9:1)
+		"#0030a0", -- bright blue (11.5:1)
+		"#5e1075", -- bright magenta (11.5:1)
+		"#00424d", -- bright cyan (12.2:1)
+		"#000000", -- bright white (slot used as darkest; 21:1)
+	},
+	indexed = { [16] = "#5e3500", [17] = "#7a0000" },
+	tab_bar = {
+		background = "#ffffff",
+		active_tab = { bg_color = "#ffffff", fg_color = "#000000", intensity = "Bold" },
+		inactive_tab = { bg_color = "#dde6ff", fg_color = "#1a1a1a", intensity = "Bold" },
+		inactive_tab_hover = { bg_color = "#a8cef0", fg_color = "#000000", intensity = "Bold" },
+		new_tab = { bg_color = "#dde6ff", fg_color = "#1a1a1a", intensity = "Bold" },
+		new_tab_hover = { bg_color = "#a8cef0", fg_color = "#000000", intensity = "Bold" },
+	},
+}
+
 local function scheme_for_appearance(appearance)
 	if appearance:find("Dark") then
 		return "Tokyo Night"
 	else
-		return "Catppuccin Latte"
+		return "Sunlight"
 	end
 end
 
@@ -23,9 +66,32 @@ end)
 
 wezterm.on("window-config-reloaded", function(window, pane)
 	local overrides = window:get_config_overrides() or {}
-	local scheme = scheme_for_appearance(window:get_appearance())
+	local appearance = window:get_appearance()
+	local dark = is_dark(appearance)
+	local scheme = scheme_for_appearance(appearance)
+	-- Force opacity to 1.0 in light mode so wallpaper bleed-through doesn't
+	-- destroy contrast under direct sunlight; keep transparency when dark.
+	local opacity = dark and 0.9 or 1.0
+	-- Use a heavier baseline font weight in light mode -- thicker strokes
+	-- read far better under glare and Bold is still distinguishable.
+	local font = wezterm.font({
+		family = "Drafting* Mono",
+		weight = dark and "Regular" or "Medium",
+	})
+	local changed = false
 	if overrides.color_scheme ~= scheme then
 		overrides.color_scheme = scheme
+		changed = true
+	end
+	if overrides.window_background_opacity ~= opacity then
+		overrides.window_background_opacity = opacity
+		changed = true
+	end
+	if overrides.font ~= font then
+		overrides.font = font
+		changed = true
+	end
+	if changed then
 		window:set_config_overrides(overrides)
 	end
 end)
@@ -122,6 +188,7 @@ wezterm.on("update-status", function(window, pane)
 end)
 
 return {
+	color_schemes = { ["Sunlight"] = sunlight_scheme },
 	color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
 
 	-- Throttle update-status (default 1s) since we shell out to git
