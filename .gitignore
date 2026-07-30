@@ -8,3 +8,7 @@ dotfiles/.config/*
 # Secrets. Deliberately broad — any name containing "env", any extension.
 *env*
 .secrets
+
+# ...but these are shell config that merely contains "env" in the name.
+!bash_includes/pyenv.bash
+!bash_includes/venv-cd.bash

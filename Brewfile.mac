@@ -1,0 +1,25 @@
+# macOS-only additions to dotfiles/.Brewfile.
+#
+# Homebrew on Linux supports neither `cask` nor `vscode` entries, so keeping
+# these here is what lets `brew bundle` run unmodified on Fedora.
+
+cask "font-jetbrains-mono-nerd-font"
+
+vscode "aaron-bond.better-comments"
+vscode "dbaeumer.vscode-eslint"
+vscode "github.vscode-pull-request-github"
+vscode "gruntfuggly.todo-tree"
+vscode "johnpapa.vscode-peacock"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-python.black-formatter"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode.remote-explorer"
+vscode "oderwat.indent-rainbow"
+vscode "usernamehw.errorlens"
+vscode "vscodevim.vim"
+vscode "vue.volar"
