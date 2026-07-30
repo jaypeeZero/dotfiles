@@ -19,7 +19,7 @@ case "$(uname -s)" in
     Darwin) _OS=mac   ;;
     Linux)  _OS=linux ;;
 esac
-[ -n "$WSL_DISTRO_NAME" ] && _OS=wsl
+[ -n "${WSL_DISTRO_NAME:-}" ] && _OS=wsl
 export _OS
 
 # Ordered first: path before anything that resolves a brew binary, colors

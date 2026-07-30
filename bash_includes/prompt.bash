@@ -19,7 +19,7 @@ GIT_PS1_SHOWUPSTREAM="verbose"
 # __git_ps1 ships with git's contrib, in a different place on every platform
 # and not always installed at all.
 for _gp in \
-    "$HOMEBREW_PREFIX/etc/bash_completion.d/git-prompt.sh" \
+    "${HOMEBREW_PREFIX:-}/etc/bash_completion.d/git-prompt.sh" \
     /usr/share/git-core/contrib/completion/git-prompt.sh \
     /usr/share/bash-completion/completions/git-prompt.sh \
     /etc/bash_completion.d/git-prompt.sh
@@ -31,7 +31,7 @@ do
 done
 unset _gp
 
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+if [ -n "${SSH_CLIENT:-}" ] || [ -n "${SSH_TTY:-}" ]; then
     hostPart="${Underline}${IPurple}\h${Color_Off}"
 else
     hostPart="${IPurple}\h${Color_Off}"
