@@ -39,3 +39,5 @@ DerivedData
 *.ipa
 *.xcuserstate
 *.xcscmblueprint
+
+**/.claude/settings.local.json
