@@ -105,16 +105,46 @@ Run one section on its own by naming it:
 
 Override the repo location with `DF` when it is not `~/.df`.
 
-Two guarantees the script keeps:
+## Confirming each section
+
+Every section prints what it is about to change — read off the machine's
+current state, not a fixed script — and waits for `Y/n` before doing any of it.
+Enter accepts:
+
+```
+=== default_shell ===
+  → add /opt/homebrew/bin/bash to /etc/shells (needs sudo)
+  → change the login shell: /bin/zsh -> /opt/homebrew/bin/bash
+  Proceed? [Y/n]
+```
+
+Declining a section is not a failure — it is listed at the end and the script
+still exits 0.
+
+To run unattended, pass `--headless` (or `-y`), which answers Y to everything:
+
+```
+./setup.sh --headless
+./setup.sh --headless packages fonts
+```
+
+Without a terminal to prompt on, sections decline rather than hang, so a
+non-interactive run without `--headless` changes nothing.
+
+Two sections still need a human even when confirmed: `ssh_key` waits while you
+paste the public key into GitHub, and `default_shell` needs sudo to edit
+`/etc/shells`. Under `--headless`, `ssh_key` prints the key and carries on
+without waiting — add it to GitHub before anything clones over SSH.
+
+Three guarantees the script keeps:
 
 - **Idempotent.** A second run changes nothing and exits 0. Every section
   reports `—` against work already done and `✓` against work it performed.
+- **Nothing changes before you have seen what it would change.** A typo'd
+  section name is rejected up front, before any section runs.
 - **A failing section never blocks the others,** and never leaves the machine
   worse than not having run. Failures are collected, listed at the end, and the
   script exits non-zero.
-
-Some sections stop for input: `ssh_key` waits while you paste the public key
-into GitHub, and `default_shell` needs sudo to edit `/etc/shells`.
 
 ## What each section does
 
