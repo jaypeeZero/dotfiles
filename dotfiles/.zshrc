@@ -40,7 +40,7 @@ CASE_SENSITIVE="false"
 plugins=(git kubectl tmux fzf)
 
 source $ZSH/oh-my-zsh.sh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.powerlevel10k/powerlevel10k.zsh-theme
 
 # ZSH-SPECIFIC ALIASES (cross-shell aliases are in bash_includes/aliases.bash)
 alias csv='cd ~/code/Caesar-Vision-Next-Gen'
@@ -53,16 +53,11 @@ set COMPOSE_PARALLEL_LIMIT=6
 # PROJECT ENVIRONMENTS
 # source ~/.some_project.env
 
-. /usr/local/opt/asdf/asdf.sh
-
 # The next line updates PATH for the Google Cloud SDK.
 #if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 #if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Navigate to the current project directory
-wing
 
 # To customize prompt, run `p10k configure` or edit ~/.df/dotfiles/.p10k.zsh.
 [[ ! -f ~/.df/dotfiles/.p10k.zsh ]] || source ~/.df/dotfiles/.p10k.zsh
