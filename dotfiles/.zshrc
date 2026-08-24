@@ -15,17 +15,19 @@ done
 
 # Path changes
 export PATH=$HOME/tools/confluent-5.3.1/bin:$PATH
-export PATH="$PATH:/Users/jw/.dotnet/tools"
-export PATH="$PATH:/Users/jw/tools/git-tidy"
+export PATH="$PATH:$HOME/.dotnet/tools"
+export PATH="$PATH:$HOME/tools/git-tidy"
 export PATH="$PATH:/usr/local/sbin"
-export PATH="$PATH:/Users/jw/bin"
+export PATH="$PATH:$HOME/bin"
+export PATH="$HOME/.codeium/windsurf/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Things to define before oh-my-zsh
 export FZF_BASE=/opt/homebrew/bin/fzf
 export FZF_DEFAULT_OPTS="--preview 'bat {-1} --color=always'"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/jw/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_AUTOSTART_ONCE=true
 ZSH_TMUX_AUTOCONNECT=true
@@ -53,31 +55,15 @@ export NVM_DIR="/usr/local/opt/nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # PROJECT ENVIRONMENTS
-# LITTLE CAESARS
-# source ~/.lce_env
-
-# COMMUNICARE
-# source ~/.comcare_env
-
-# NIPPER
-# source ~/.nipper_env
-
-# OMI
-# source ~/.omi_env
-
-# STIPPLING
-# source ~/.stippling_env
-
-# WINGSTOP
-source ~/.wingstop_env
+# source ~/.some_project.env
 
 . /usr/local/opt/asdf/asdf.sh
 
 # The next line updates PATH for the Google Cloud SDK.
-#if [ -f '/Users/jw/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jw/google-cloud-sdk/path.zsh.inc'; fi
+#if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-#if [ -f '/Users/jw/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jw/google-cloud-sdk/completion.zsh.inc'; fi
+#if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Navigate to the current project directory
 wing
