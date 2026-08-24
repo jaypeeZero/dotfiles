@@ -50,10 +50,6 @@ alias csv='cd ~/code/Caesar-Vision-Next-Gen'
 # DOCKER SETTINGS
 set COMPOSE_PARALLEL_LIMIT=6
 
-export NVM_DIR="/usr/local/opt/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # PROJECT ENVIRONMENTS
 # source ~/.some_project.env
 
