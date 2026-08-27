@@ -280,5 +280,7 @@ return {
 		{ key = "RightArrow", mods = "CTRL|SHIFT", action = wezterm.action.AdjustPaneSize({ "Right", 5 }) },
 		{ key = "UpArrow", mods = "CTRL|SHIFT", action = wezterm.action.AdjustPaneSize({ "Up", 5 }) },
 		{ key = "DownArrow", mods = "CTRL|SHIFT", action = wezterm.action.AdjustPaneSize({ "Down", 5 }) },
+		-- Pane swap
+		{ key = "p", mods = "CTRL|SHIFT|CMD", action = wezterm.action.PaneSelect({ mode = "SwapWithActive" }) },
 	},
 }
