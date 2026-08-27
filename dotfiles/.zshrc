@@ -61,3 +61,8 @@ set COMPOSE_PARALLEL_LIMIT=6
 
 # To customize prompt, run `p10k configure` or edit ~/.df/dotfiles/.p10k.zsh.
 [[ ! -f ~/.df/dotfiles/.p10k.zsh ]] || source ~/.df/dotfiles/.p10k.zsh
+# lean-ctx shell hook — begin
+if [ -f "$HOME/.config/lean-ctx/shell-hook.zsh" ]; then
+. "$HOME/.config/lean-ctx/shell-hook.zsh"
+fi
+# lean-ctx shell hook — end
