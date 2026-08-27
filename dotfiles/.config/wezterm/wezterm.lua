@@ -57,10 +57,14 @@ end
 
 wezterm.on("format-tab-title", function(tab)
 	local uri = tab.active_pane.current_working_dir
-	if not uri then return tab.active_pane.title end
+	if not uri then
+		return tab.active_pane.title
+	end
 	local path = type(uri) == "userdata" and uri.file_path or tostring(uri)
 	local home = os.getenv("HOME") or ""
-	if path == home or path == home .. "/" then return "~" end
+	if path == home or path == home .. "/" then
+		return "~"
+	end
 	return path:match("([^/]+)/?$") or path
 end)
 
@@ -69,13 +73,11 @@ wezterm.on("window-config-reloaded", function(window, pane)
 	local appearance = window:get_appearance()
 	local dark = is_dark(appearance)
 	local scheme = scheme_for_appearance(appearance)
-	-- Force opacity to 1.0 in light mode so wallpaper bleed-through doesn't
-	-- destroy contrast under direct sunlight; keep transparency when dark.
-	local opacity = dark and 0.9 or 1.0
+	local opacity = 1.0
 	-- Use a heavier baseline font weight in light mode -- thicker strokes
 	-- read far better under glare and Bold is still distinguishable.
 	local font = wezterm.font({
-		family = "Drafting* Mono",
+		family = "Drafting Mono",
 		weight = dark and "Regular" or "Medium",
 	})
 	local changed = false
@@ -96,27 +98,77 @@ wezterm.on("window-config-reloaded", function(window, pane)
 	end
 end)
 
--- Read git branch + dirty file count for a working directory.
--- Returns nil, nil if not inside a git repo.
-local function git_info(path)
-	if not path or path == "" then return nil, nil end
-	local cmd = string.format("git -C %q status --porcelain=v1 -b 2>/dev/null", path)
-	local handle = io.popen(cmd)
-	if not handle then return nil, nil end
-	local out = handle:read("*a") or ""
-	handle:close()
-	if out == "" then return nil, nil end
+-- Read git branch + dirty file count for a working directory, without ever
+-- blocking the GUI thread: io.popen() waits for `git` to exit synchronously,
+-- which stalls all rendering (including keystrokes) for however long git
+-- takes. Instead, spawn git in the background, redirect its output to a tmp
+-- file, and poll that file (near-instant local read) on later calls.
+local git_cache = {}
 
-	local first_line = out:match("^[^\n]*") or ""
-	local branch = first_line:match("^## ([^%s.]+)")
-		or first_line:match("^## (.-)%.%.%.")
-		or first_line:match("^## (.+)$")
-
-	local count = 0
-	for _ in out:gmatch("\n[ MADRCU?!][ MADRCU?!] ") do
-		count = count + 1
+local function path_hash(path)
+	local h = 5381
+	for i = 1, #path do
+		h = (h * 33 + string.byte(path, i)) % 4294967296
 	end
-	return branch, count
+	return string.format("%x", h)
+end
+
+local function refresh_git_info_async(path)
+	local entry = git_cache[path]
+	local now = os.time()
+	if entry and (entry.pending or (now - (entry.checked_at or 0)) < 3) then
+		return
+	end
+	entry = entry or {}
+	entry.pending = true
+	entry.tmp_file = entry.tmp_file
+		or string.format("%s/wezterm-git-%s.txt", os.getenv("TMPDIR") or "/tmp", path_hash(path))
+	git_cache[path] = entry
+	wezterm.background_child_process({
+		"/bin/sh",
+		"-c",
+		string.format("git -C %q status --porcelain=v1 -b > %q 2>/dev/null", path, entry.tmp_file),
+	})
+end
+
+local function poll_git_info(path)
+	local entry = git_cache[path]
+	if not entry then
+		return nil, nil
+	end
+	if entry.pending then
+		local f = io.open(entry.tmp_file, "r")
+		if f then
+			local out = f:read("*a") or ""
+			f:close()
+			os.remove(entry.tmp_file)
+			entry.pending = false
+			entry.checked_at = os.time()
+			if out == "" then
+				entry.branch, entry.count = nil, nil
+			else
+				local first_line = out:match("^[^\n]*") or ""
+				entry.branch = first_line:match("^## ([^%s.]+)")
+					or first_line:match("^## (.-)%.%.%.")
+					or first_line:match("^## (.+)$")
+				local count = 0
+				for _ in out:gmatch("\n[ MADRCU?!][ MADRCU?!] ") do
+					count = count + 1
+				end
+				entry.count = count
+			end
+		end
+	end
+	return entry.branch, entry.count or 0
+end
+
+-- Returns nil, nil if not inside a git repo (or the first poll hasn't landed yet).
+local function git_info(path)
+	if not path or path == "" then
+		return nil, nil
+	end
+	refresh_git_info_async(path)
+	return poll_git_info(path)
 end
 
 -- Multi-segment powerline status bar with gradient colors.
@@ -152,7 +204,9 @@ wezterm.on("update-status", function(window, pane)
 	if branch and changed > 0 then
 		table.insert(segments, "±" .. changed)
 	end
-	if battery ~= "" then table.insert(segments, battery) end
+	if battery ~= "" then
+		table.insert(segments, battery)
+	end
 	table.insert(segments, wezterm.strftime("%a %b %-d %H:%M"))
 
 	local palette = window:effective_config().resolved_palette
@@ -167,10 +221,8 @@ wezterm.on("update-status", function(window, pane)
 		gradient_from = gradient_to:darken(0.2)
 	end
 
-	local gradient = wezterm.color.gradient(
-		{ orientation = "Horizontal", colors = { gradient_from, gradient_to } },
-		#segments
-	)
+	local gradient =
+		wezterm.color.gradient({ orientation = "Horizontal", colors = { gradient_from, gradient_to } }, #segments)
 
 	local elements = {}
 	for i, seg in ipairs(segments) do
@@ -194,27 +246,34 @@ return {
 	-- Throttle update-status (default 1s) since we shell out to git
 	status_update_interval = 5000,
 
+	front_end = "WebGpu",
+	webgpu_power_preference = "HighPerformance",
+
 	-- Font
-	font = wezterm.font({ family = "Drafting* Mono" }),
-	font_size = 13,
+	-- Disable ligature/contextual-alternate shaping: HarfBuzz reshapes every
+	-- redraw, and this font carries those tables even though a monospace
+	-- terminal font doesn't need them -- measurable input-latency cost.
+	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+	font = wezterm.font({ family = "Drafting Mono" }),
+	font_size = 15,
 
 	-- Window styling
-	window_background_opacity = 0.9,
-	macos_window_background_blur = 30,
+	window_background_opacity = 1.0,
+	macos_window_background_blur = 0,
 	window_decorations = "RESIZE",
-	window_frame = {
-		font = wezterm.font({ family = "Drafting* Mono", weight = "Bold" }),
-		font_size = 12,
-	},
+	--window_frame = {
+	--font = wezterm.font({ family = "Drafting Mono", weight = "Bold" }),
+	--font_size = 12,
+	--},
 
 	keys = {
 		-- Pane splitting (iTerm2-style)
-		{ key = "d", mods = "CMD",       action = wezterm.action.SplitPane { direction = "Right" } },
-		{ key = "d", mods = "CMD|SHIFT", action = wezterm.action.SplitPane { direction = "Down" } },
+		{ key = "d", mods = "CMD", action = wezterm.action.SplitPane({ direction = "Right" }) },
+		{ key = "d", mods = "CMD|SHIFT", action = wezterm.action.SplitPane({ direction = "Down" }) },
 		-- Pane navigation
-		{ key = "[", mods = "CMD",       action = wezterm.action.ActivatePaneDirection "Prev" },
-		{ key = "]", mods = "CMD",       action = wezterm.action.ActivatePaneDirection "Next" },
-		{ key = "w", mods = "CMD",       action = wezterm.action.CloseCurrentPane { confirm = false } },
+		{ key = "[", mods = "CMD", action = wezterm.action.ActivatePaneDirection("Prev") },
+		{ key = "]", mods = "CMD", action = wezterm.action.ActivatePaneDirection("Next") },
+		{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
 		{ key = "f", mods = "CMD|CTRL", action = wezterm.action.ToggleFullScreen },
 	},
 }
