@@ -275,5 +275,10 @@ return {
 		{ key = "]", mods = "CMD", action = wezterm.action.ActivatePaneDirection("Next") },
 		{ key = "w", mods = "CMD", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
 		{ key = "f", mods = "CMD|CTRL", action = wezterm.action.ToggleFullScreen },
+		-- Pane resizing (overrides default ActivatePaneDirection on these keys)
+		{ key = "LeftArrow", mods = "CTRL|SHIFT", action = wezterm.action.AdjustPaneSize({ "Left", 5 }) },
+		{ key = "RightArrow", mods = "CTRL|SHIFT", action = wezterm.action.AdjustPaneSize({ "Right", 5 }) },
+		{ key = "UpArrow", mods = "CTRL|SHIFT", action = wezterm.action.AdjustPaneSize({ "Up", 5 }) },
+		{ key = "DownArrow", mods = "CTRL|SHIFT", action = wezterm.action.AdjustPaneSize({ "Down", 5 }) },
 	},
 }
