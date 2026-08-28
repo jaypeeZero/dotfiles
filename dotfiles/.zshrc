@@ -14,6 +14,11 @@ done
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path changes
+# Static nvm PATH entry, not a sourced nvm.sh function call: .zprofile's
+# `brew shellenv` runs macOS's path_helper, which resets whatever PATH
+# .zshenv built up before this file even loads, so nvm has to be re-added
+# here as a plain export to survive that reset.
+export PATH="$HOME/.nvm/versions/node/v22.23.2/bin:$PATH"
 export PATH=$HOME/tools/confluent-5.3.1/bin:$PATH
 export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$PATH:$HOME/tools/git-tidy"
