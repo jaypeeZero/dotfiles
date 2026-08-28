@@ -255,7 +255,7 @@ return {
 	-- terminal font doesn't need them -- measurable input-latency cost.
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	font = wezterm.font({ family = "Drafting Mono" }),
-	font_size = 15,
+	font_size = 16,
 
 	-- Window styling
 	window_background_opacity = 1.0,
