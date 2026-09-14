@@ -5,6 +5,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Docker.app's zsh completions are symlinked from site-functions into
+# /Applications, which is group-writable by design on macOS. compaudit
+# treats that as insecure and skips loading completions entirely,
+# breaking compdef. Trust it rather than chmod'ing a shared system dir.
+# Must be set before bash_includes below: nvm's own zsh completion script
+# (sourced from there) reads this same variable to decide whether to call
+# `compinit -u` or a bare, prompting `compinit`.
+ZSH_DISABLE_COMPFIX=true
+
 # Source all bash_includes files (works in both bash and zsh)
 for file in $HOME/.df/bash_includes/*.bash; do
   source "$file"
