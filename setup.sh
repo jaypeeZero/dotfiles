@@ -202,6 +202,76 @@ packages() {
 }
 
 # --------------------------------------------------------------------------
+# uv-managed CLI tools
+# --------------------------------------------------------------------------
+
+UV_TOOLS=(harlequin)
+
+describe_uv_tools() {
+    command -v uv >/dev/null 2>&1 || { will "nothing, uv is not installed yet"; return 0; }
+
+    local tool missing=0
+    for tool in "${UV_TOOLS[@]}"; do
+        uv tool list 2>/dev/null | grep -Eq "^${tool} " || missing=$((missing + 1))
+    done
+
+    if [ "$missing" -eq 0 ]; then
+        will "keep all ${#UV_TOOLS[@]} uv tools, nothing missing"
+    else
+        will "uv tool install $missing of ${#UV_TOOLS[@]} tools: ${UV_TOOLS[*]}"
+    fi
+}
+
+uv_tools() {
+    command -v uv >/dev/null 2>&1 || { skip "uv not installed"; return 0; }
+
+    local tool
+    for tool in "${UV_TOOLS[@]}"; do
+        if uv tool list 2>/dev/null | grep -Eq "^${tool} "; then
+            skip "$tool"
+        else
+            uv tool install "$tool" || return 1
+            ok "$tool"
+        fi
+    done
+}
+
+# --------------------------------------------------------------------------
+# npm-managed global CLI tools
+# --------------------------------------------------------------------------
+
+NPM_TOOLS=(@usebruno/cli)
+
+describe_npm_tools() {
+    command -v npm >/dev/null 2>&1 || { will "nothing, npm is not installed yet"; return 0; }
+
+    local tool missing=0
+    for tool in "${NPM_TOOLS[@]}"; do
+        npm ls -g --depth=0 2>/dev/null | grep -Fq "$tool" || missing=$((missing + 1))
+    done
+
+    if [ "$missing" -eq 0 ]; then
+        will "keep all ${#NPM_TOOLS[@]} npm global tools, nothing missing"
+    else
+        will "npm install -g $missing of ${#NPM_TOOLS[@]} tools: ${NPM_TOOLS[*]}"
+    fi
+}
+
+npm_tools() {
+    command -v npm >/dev/null 2>&1 || { skip "npm not installed"; return 0; }
+
+    local tool
+    for tool in "${NPM_TOOLS[@]}"; do
+        if npm ls -g --depth=0 2>/dev/null | grep -Fq "$tool"; then
+            skip "$tool"
+        else
+            npm install -g "$tool" || return 1
+            ok "$tool"
+        fi
+    done
+}
+
+# --------------------------------------------------------------------------
 # shell wiring — the point of the whole repo
 # --------------------------------------------------------------------------
 
@@ -433,7 +503,7 @@ flatpaks() {
 
 # --------------------------------------------------------------------------
 
-SECTIONS=(ssh_key homebrew packages shell default_shell neovim fonts prompt_theme zsh_framework flatpaks)
+SECTIONS=(ssh_key homebrew packages uv_tools npm_tools shell default_shell neovim fonts prompt_theme zsh_framework flatpaks)
 
 usage() {
     sed -n '3,18p' "$0" | sed 's/^#\{0,1\} \{0,1\}//'

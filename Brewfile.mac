@@ -3,6 +3,7 @@
 # Homebrew on Linux supports neither `cask` nor `vscode` entries, so keeping
 # these here is what lets `brew bundle` run unmodified on Fedora.
 
+cask "bruno"
 cask "font-jetbrains-mono-nerd-font"
 
 vscode "aaron-bond.better-comments"
