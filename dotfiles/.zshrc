@@ -67,6 +67,10 @@ set COMPOSE_PARALLEL_LIMIT=6
 # PROJECT ENVIRONMENTS
 # source ~/.some_project.env
 
+# MACHINE SPECIFIC ENVIRONMENT
+[[ -f "$HOME/.df/dotfiles/.zsh.env.local" ]] && source "$HOME/.df/dotfiles/.zsh.env.local"
+
+
 # The next line updates PATH for the Google Cloud SDK.
 #if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 

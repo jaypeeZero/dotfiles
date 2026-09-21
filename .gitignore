@@ -12,3 +12,6 @@ dotfiles/.config/*
 # ...but these are shell config that merely contains "env" in the name.
 !bash_includes/pyenv.bash
 !bash_includes/venv-cd.bash
+
+# Machine specific env
+dotfiles/.zsh.env.local
