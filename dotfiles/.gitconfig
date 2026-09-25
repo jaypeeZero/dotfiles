@@ -106,3 +106,9 @@
 [user]
 	name = James Wright
 	email = james.wright@wwt.com
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
