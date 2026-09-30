@@ -57,7 +57,17 @@
     breakout = !"d() { git reset $1~; }; d"
 	rmbranches = "!f() { git branch | grep $1 | xargs git branch -D; }; f"
     delete-remote = "!git push origin --delete "
-    prune = "!git branch --merged master | grep -v '*' | xargs -n 1 git branch -d"
+	sweep = "!f() { \
+		git fetch --prune || return; \
+		cur=$(git branch --show-current); \
+		m=$(git rev-parse origin/main); \
+		merged=$(git branch --merged origin/main --format='%(objectname) %(refname:short)' | awk -v m=$m '$1 != m {print $2}'); \
+		gone=$(git for-each-ref refs/heads --format='%(refname:short) %(upstream:track)' | awk '$2 ~ /gone/ {print $1}'); \
+		for b in $(printf '%s\\n' $merged $gone | sort -u | grep -vxF -e main -e \"$cur\"); do \
+			wt=$(git worktree list --porcelain | awk -v b=refs/heads/$b '/^worktree /{p=substr($0,10)} $1==\"branch\" && $2==b {print p}'); \
+			[ -z \"$wt\" ] || git worktree remove \"$wt\" || continue; \
+			git branch -D \"$b\"; \
+		done; }; f"
     vim = !vim `git status --porcelain | sed -ne 's/^ M //p'`
     authors = "!git log --pretty=format:%aN | sort | uniq -c | sort -rn"
     fnd = grep --name-only --full-name
@@ -112,3 +122,6 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+
+[includeIf "hasconfig:remote.*.url:git@personal.github.com:*/**"]
+    path = ~/.personal.gitconfig      # [user] name/email = jaypeeZero identity
