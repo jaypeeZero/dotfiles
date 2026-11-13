@@ -12,6 +12,7 @@ oh-my-zsh-install.sh  vendored oh-my-zsh installer
 bash_includes/        interactive-shell config, sourced via loader.bash
 bin/                  small scripts that end up on PATH
 dotfiles/             everything stowed into $HOME
+tests/                plain-bash tests, run with bash tests/<name>.test.sh
 ```
 
 ## Stow
@@ -39,6 +40,11 @@ Linux         ~/.bashrc.d/00-loader.sh ──symlink──▶  bash_includes/loa
 
 New `*.bash` files are picked up automatically. Only `*.bash` is ever sourced,
 so a stray README in that directory cannot break a login shell.
+
+`bash_includes/node-path.sh` is the one file there that non-interactive
+shells read: `dotfiles/.zshenv` sources it for every zsh and exports it as
+`BASH_ENV` for every non-interactive bash. It puts the node named by the
+nearest `.nvmrc`, else the nvm default alias, first on PATH.
 
 ## Secrets
 
