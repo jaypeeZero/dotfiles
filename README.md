@@ -42,9 +42,17 @@ New `*.bash` files are picked up automatically. Only `*.bash` is ever sourced,
 so a stray README in that directory cannot break a login shell.
 
 `bash_includes/node-path.sh` is the one file there that non-interactive
-shells read: `dotfiles/.zshenv` sources it for every zsh and exports it as
-`BASH_ENV` for every non-interactive bash. It puts the node named by the
-nearest `.nvmrc`, else the nvm default alias, first on PATH.
+shells read: `dotfiles/.zshenv` sources it for every zsh, again on every `cd`,
+and exports it as `BASH_ENV` for every non-interactive bash. It puts one node
+first on PATH, the first of these that matches an install:
+
+```
+nearest .nvmrc  →  nvm default alias  →  newest nvm install
+                                          (no nvm installs: newest node on PATH)
+```
+
+`dotfiles/.zshenv` also sources `dotfiles/.zsh.env.local` (gitignored), so
+machine-specific exports reach every zsh, interactive or not.
 
 ## Secrets
 
@@ -106,7 +114,7 @@ Run one section on its own by naming it:
 
 ```
 ./setup.sh shell
-./setup.sh packages default_shell
+./setup.sh packages fonts
 ```
 
 Override the repo location with `DF` when it is not `~/.df`.
@@ -118,9 +126,9 @@ current state, not a fixed script — and waits for `Y/n` before doing any of it
 Enter accepts:
 
 ```
-=== default_shell ===
-  → add /opt/homebrew/bin/bash to /etc/shells (needs sudo)
-  → change the login shell: /bin/zsh -> /opt/homebrew/bin/bash
+=== shell ===
+  → move /Users/you/.zshrc to /Users/you/.zshrc.pre-stow, so stow can link the repo file
+  → stow /Users/you/.df/dotfiles into /Users/you, replacing any symlink it owns
   Proceed? [Y/n]
 ```
 
@@ -137,10 +145,9 @@ To run unattended, pass `--headless` (or `-y`), which answers Y to everything:
 Without a terminal to prompt on, sections decline rather than hang, so a
 non-interactive run without `--headless` changes nothing.
 
-Two sections still need a human even when confirmed: `ssh_key` waits while you
-paste the public key into GitHub, and `default_shell` needs sudo to edit
-`/etc/shells`. Under `--headless`, `ssh_key` prints the key and carries on
-without waiting — add it to GitHub before anything clones over SSH.
+`ssh_key` still needs a human even when confirmed: it waits while you paste
+the public key into GitHub. Under `--headless` it prints the key and carries
+on without waiting — add it to GitHub before anything clones over SSH.
 
 Three guarantees the script keeps:
 
@@ -159,8 +166,7 @@ Three guarantees the script keeps:
 | `ssh_key` | all | Generates `~/.ssh/id_rsa` when absent, prints the public half to add at <https://github.com/settings/keys>, adds github.com to `known_hosts` |
 | `homebrew` | all | Installs Homebrew when absent, resolves its shellenv, installs `stow` |
 | `packages` | all | `brew bundle` over `dotfiles/.Brewfile`, plus `Brewfile.mac` on macOS |
-| `shell` | all | macOS/WSL: stows `dotfiles/`. Linux: symlinks `~/.bashrc.d/00-loader.sh` |
-| `default_shell` | all | Adds brew's bash to `/etc/shells` and `chsh` to it |
+| `shell` | all | macOS/WSL: stows `dotfiles/`, first moving any real file in the way to `<name>.pre-stow` and putting it back if stow fails. Linux: symlinks `~/.bashrc.d/00-loader.sh` |
 | `neovim` | all | Installs the LazyVim starter, unless `~/.config/nvim` already exists |
 | `fonts` | all | Installs Drafting* Mono — no brew package exists for it |
 | `prompt_theme` | all | Clones or fast-forwards powerlevel10k into `~/.powerlevel10k` |
@@ -188,7 +194,7 @@ git clone git@github.com:jaypeeZero/my-claude-settings.git ~/.claude
 ```
 
 That pulls in lean-ctx, the personal skills repo and the git hooks. Run it after
-`packages`, since it needs `jq` and bash 4+. The clone is over SSH, so it works
+`packages`, since it needs `jq`. The clone is over SSH, so it works
 only once `ssh_key` has run and the key has been added to GitHub.
 
 # TODO

@@ -275,8 +275,45 @@ npm_tools() {
 # shell wiring — the point of the whole repo
 # --------------------------------------------------------------------------
 
+# stow_blockers -> one "<action> <path>" line per $HOME path stow would refuse:
+#   backup  a real file, or a symlink to somewhere other than the repo
+#   relink  an absolute symlink to the repo file, which stow will not own
+stow_blockers() {
+    local src target
+    while IFS= read -r src; do
+        target="$HOME/${src#"$DF/dotfiles/"}"
+        if [ -L "$target" ]; then
+            if ! [ "$target" -ef "$src" ]; then
+                printf 'backup %s\n' "$target"
+            else
+                case "$(readlink "$target")" in /*) printf 'relink %s\n' "$target" ;; esac
+            fi
+        elif [ -f "$target" ] && ! [ "$target" -ef "$src" ]; then
+            printf 'backup %s\n' "$target"
+        fi
+    done < <(find "$DF/dotfiles" -type f ! -name .DS_Store ! -name .stow-local-ignore)
+}
+
+# undo_clearing <log> -> puts back every path a failed stow run cleared
+undo_clearing() {
+    local action path link
+    while IFS='|' read -r action path link; do
+        case "$action" in
+            backup) [ -e "$path" ] || [ -L "$path" ] || mv "$path.pre-stow" "$path" ;;
+            relink) [ -e "$path" ] || [ -L "$path" ] || ln -s "$link" "$path" ;;
+        esac
+    done <<< "$1"
+}
+
 describe_shell() {
     if [ "$_OS" = "mac" ]; then
+        local action path
+        while read -r action path; do
+            case "$action" in
+                backup) will "move $path to $path.pre-stow, so stow can link the repo file" ;;
+                relink) will "replace the absolute link $path with stow's relative one" ;;
+            esac
+        done < <(stow_blockers)
         will "stow $DF/dotfiles into $HOME, replacing any symlink it owns"
     else
         will "symlink ~/.bashrc.d/00-loader.sh -> $DF/bash_includes/loader.bash"
@@ -289,8 +326,37 @@ describe_shell() {
 
 shell() {
     if [ "$_OS" = "mac" ]; then
+        local blockers action path cleared=""
+        blockers="$(stow_blockers)"
+
+        # Refuse before touching anything rather than overwrite an older backup.
+        while read -r action path; do
+            if [ "$action" = backup ] && { [ -e "$path.pre-stow" ] || [ -L "$path.pre-stow" ]; }; then
+                printf '  %s.pre-stow already exists — move it aside and re-run\n' "$path" >&2
+                return 1
+            fi
+        done <<< "$blockers"
+
+        while read -r action path; do
+            case "$action" in
+                backup)
+                    mv "$path" "$path.pre-stow" || { undo_clearing "$cleared"; return 1; }
+                    cleared="$cleared"$'\n'"backup|$path|"
+                    ok "moved $path to $path.pre-stow"
+                    ;;
+                relink)
+                    cleared="$cleared"$'\n'"relink|$path|$(readlink "$path")"
+                    rm "$path" || { undo_clearing "$cleared"; return 1; }
+                    ;;
+            esac
+        done <<< "$blockers"
+
         # stow places ~/.bashrc, which sources bash_includes/loader.bash
-        stow --restow --dir "$DF" --target "$HOME" --ignore='\.DS_Store' dotfiles || return 1
+        if ! stow --restow --dir "$DF" --target "$HOME" --ignore='\.DS_Store' dotfiles; then
+            undo_clearing "$cleared"
+            skip "put back every file moved above"
+            return 1
+        fi
         ok "stowed dotfiles"
     else
         # Fedora ships its own ~/.bashrc which globs ~/.bashrc.d/* — don't
@@ -303,42 +369,6 @@ shell() {
     if [ ! -e "$HOME/.env" ] && [ ! -e "$HOME/.secrets" ]; then
         skip "no ~/.env or ~/.secrets — copy one over by hand, they are gitignored"
     fi
-}
-
-describe_default_shell() {
-    command -v brew >/dev/null 2>&1 || { will "nothing, brew is not installed yet"; return 0; }
-
-    local brew_bash
-    brew_bash="$(brew --prefix)/bin/bash"
-
-    if [ ! -x "$brew_bash" ]; then
-        will "nothing, $brew_bash is not installed"
-    elif [ "$SHELL" = "$brew_bash" ]; then
-        will "keep $brew_bash as the login shell"
-    else
-        grep -Fqx "$brew_bash" /etc/shells || will "add $brew_bash to /etc/shells (needs sudo)"
-        will "change the login shell: $SHELL -> $brew_bash"
-    fi
-}
-
-default_shell() {
-    command -v brew >/dev/null 2>&1 || { skip "no brew, skipping"; return 0; }
-
-    local brew_bash
-    brew_bash="$(brew --prefix)/bin/bash"
-    [ -x "$brew_bash" ] || { skip "brew bash not installed"; return 0; }
-
-    if [ "$SHELL" = "$brew_bash" ]; then
-        skip "already the login shell"
-        return 0
-    fi
-
-    if ! grep -Fqx "$brew_bash" /etc/shells; then
-        echo "  sudo is needed to add $brew_bash to /etc/shells"
-        sudo sh -c "echo $brew_bash >> /etc/shells" || return 1
-    fi
-    chsh -s "$brew_bash" || return 1
-    ok "login shell set to $brew_bash"
 }
 
 # --------------------------------------------------------------------------
@@ -503,7 +533,7 @@ flatpaks() {
 
 # --------------------------------------------------------------------------
 
-SECTIONS=(ssh_key homebrew packages uv_tools npm_tools shell default_shell neovim fonts prompt_theme zsh_framework flatpaks)
+SECTIONS=(ssh_key homebrew packages uv_tools npm_tools shell neovim fonts prompt_theme zsh_framework flatpaks)
 
 usage() {
     sed -n '3,18p' "$0" | sed 's/^#\{0,1\} \{0,1\}//'

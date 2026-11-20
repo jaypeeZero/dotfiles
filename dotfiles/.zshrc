@@ -23,11 +23,6 @@ done
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path changes
-# Static nvm PATH entry, not a sourced nvm.sh function call: .zprofile's
-# `brew shellenv` runs macOS's path_helper, which resets whatever PATH
-# .zshenv built up before this file even loads, so nvm has to be re-added
-# here as a plain export to survive that reset.
-export PATH="$HOME/.nvm/versions/node/v22.23.2/bin:$PATH"
 export PATH=$HOME/tools/confluent-5.3.1/bin:$PATH
 export PATH="$PATH:$HOME/.dotnet/tools"
 export PATH="$PATH:$HOME/tools/git-tidy"
@@ -58,18 +53,15 @@ source ~/.powerlevel10k/powerlevel10k.zsh-theme
 
 # ZSH-SPECIFIC ALIASES (cross-shell aliases are in bash_includes/aliases.bash)
 alias csv='cd ~/code/Caesar-Vision-Next-Gen'
+alias run-scruple='.scruple/node_modules/.bin/scruple -c .scruple/scruple.config.ts --cache-dir .scruple/cache'
 
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # DOCKER SETTINGS
-set COMPOSE_PARALLEL_LIMIT=6
+export COMPOSE_PARALLEL_LIMIT=6
 
 # PROJECT ENVIRONMENTS
 # source ~/.some_project.env
-
-# MACHINE SPECIFIC ENVIRONMENT
-[[ -f "$HOME/.df/dotfiles/.zsh.env.local" ]] && source "$HOME/.df/dotfiles/.zsh.env.local"
-
 
 # The next line updates PATH for the Google Cloud SDK.
 #if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
@@ -84,3 +76,17 @@ if [ -f "$HOME/.config/lean-ctx/shell-hook.zsh" ]; then
 . "$HOME/.config/lean-ctx/shell-hook.zsh"
 fi
 # lean-ctx shell hook — end
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+
+# Last line on purpose. bash_includes (path.bash re-runs brew shellenv after
+# nvm.sh loads) leaves /opt/homebrew/bin ahead of the picked node, and
+# .zsh.env.local must win over everything above: re-run .zshenv, which
+# handles both.
+source "$HOME/.zshenv"
