@@ -197,6 +197,18 @@ That pulls in lean-ctx, the personal skills repo and the git hooks. Run it after
 `packages`, since it needs `jq`. The clone is over SSH, so it works
 only once `ssh_key` has run and the key has been added to GitHub.
 
+## Herdr
+
+Install and launch Herdr only after `shell` has run. Stow then links
+`~/.config/herdr-app` as a whole directory, so Herdr starts on the tracked
+`keys.json` and `settings.json`. Everything else Herdr writes there stays
+untracked under `dotfiles/.config/*`. Install the custom layout from its own
+repo after that.
+
+If Herdr ran first, `~/.config/herdr-app` is a real directory, and stow links
+the two tracked files one by one inside it. To fix that: quit Herdr, delete
+`~/.config/herdr-app`, and re-run `./setup.sh shell`.
+
 # TODO
 
 - Fold the Claude environment into `setup.sh` as its own section, so a machine
