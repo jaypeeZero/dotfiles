@@ -6,6 +6,10 @@
 cask "bruno"
 cask "font-jetbrains-mono-nerd-font"
 
+# Herdr updates itself in place. A copy already installed in ~/Applications is
+# kept, instead of brew adding a second one to /Applications.
+cask "herdr-app" unless File.exist?(File.expand_path("~/Applications/Herdr.app"))
+
 vscode "aaron-bond.better-comments"
 vscode "dbaeumer.vscode-eslint"
 vscode "github.vscode-pull-request-github"
